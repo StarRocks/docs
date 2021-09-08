@@ -89,11 +89,11 @@ Step 2: Create a metadata directory and add the meta_dir config to `conf/fe.conf
 mkdir -p meta
 ```
 
-Add the meta_dir config to `conf/fe.conf`:
+Add the meta_dir config to `conf/fe.conf` :
+
 ```
 meta_dir = the absolute path of meta dir you created before
 ```
-
 
 Step 3: Start the FE.
 
