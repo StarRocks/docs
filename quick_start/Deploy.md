@@ -91,7 +91,7 @@ mkdir -p meta
 
 Add the meta_dir config to `conf/fe.conf` :
 
-```
+```bash
 meta_dir = the absolute path of meta dir you created before
 ```
 
