@@ -1,6 +1,6 @@
 # Introduction of the dev-env image
 
-## Download the image 
+## Download the image
 
 ```shell
 # download image from dockerhub
@@ -29,7 +29,7 @@ docker pull starrocks/dev-env:{version}
 
 - Run the container by mounting the local path (**recommended**)
 
-  - Avoid re-downloading java dependency 
+  - Avoid re-downloading java dependency
   - No need to copy the compiled binary package in starrocks/output from the container
 
   ```shell
