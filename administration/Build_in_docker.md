@@ -50,4 +50,3 @@ docker pull starrocks/dev-env:{version}
 
 - llvm
 - clang
-
