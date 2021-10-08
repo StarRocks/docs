@@ -14,6 +14,6 @@
   + [StarRocks table design](/table_design/StarRocks_table_design.md)
   + [Data model](/table_design/Data_model.md)
   + [Data distribution](/table_design/Data_distribution.md)
+  + [Sort key and shortkey index](/table_design/Sort_key.md)
 + Management manual
   + [Build in docker](/administration/Build_in_docker.md)
-  
