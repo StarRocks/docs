@@ -2,7 +2,7 @@
 
 ## Principle
 
-### **What is Bloom Filter**
+### What is Bloom Filter
 
 Bloom Filter is a data structure used to determine whether an element is in a collection. The advantage is that it is more space and time efficient, and the disadvantage is that it has a certain rate of misclassification.
 
