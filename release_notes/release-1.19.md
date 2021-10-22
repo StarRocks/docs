@@ -25,7 +25,7 @@ Release date: Octorber 22, 2021
 * Support multiple variable settings in SET_VAR .
 * Improve the error reporting information, including table_sink, routine load, creation of materialized view, etc.
 
-#### StarRocks-Datax Connector
+#### StarRocks-DataX Connector
 
 * Support setting interval flush StarRocks-DataX Writer.
 
