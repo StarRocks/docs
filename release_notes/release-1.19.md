@@ -2,7 +2,7 @@
 
 ## v1.19.0
 
-Release date: Octorber 21, 2021
+Release date: Octorber 22, 2021
 
 ### New Feature
 
