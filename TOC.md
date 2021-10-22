@@ -20,3 +20,6 @@
   + [Bloomfilter indexing](/table_design/Bloomfilter_index.md)
 + Development
   + [Build in docker](/development/Build_in_docker.md)
++ Release Notes
+  + [v1.19](release_notes/release-1.19.md)
+  
