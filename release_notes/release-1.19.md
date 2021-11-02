@@ -36,3 +36,19 @@ Release date: Octorber 22, 2021
 * Fix the problem of FE stuck due to statistical information collection
 * Fix the problem that set_var takes effect for session but not for statements.
 * Fix the problem that select count(*) returns abnormality on the Hive partition external table.
+
+## v1.19.1
+
+Release date: November 2, 2021
+
+### Improvement
+
+* Optimize the performance of `show frontends`. [# 507](https://github.com/StarRocks/starrocks/pull/507) [# 984](https://github.com/StarRocks/starrocks/pull/984)
+* Add monitoring of slow queries. [# 502](https://github.com/StarRocks/starrocks/pull/502) [# 891](https://github.com/StarRocks/starrocks/pull/891)
+* Optimize the fetching of Hive external metadata to achieve parallel fetching.[# 425](https://github.com/StarRocks/starrocks/pull/425) [# 451](https://github.com/StarRocks/starrocks/pull/451)
+
+### BugFix
+
+* Fix the problem of Thrift protocol compatibility, so that the Hive external table can be connected with Kerberos. [# 184](https://github.com/StarRocks/starrocks/pull/184) [# 947](https://github.com/StarRocks/starrocks/pull/947) [# 995](https://github.com/StarRocks/starrocks/pull/995) [# 999](https://github.com/StarRocks/starrocks/pull/999)
+* Fix several bugs in view creation. [# 972](https://github.com/StarRocks/starrocks/pull/972) [# 987](https://github.com/StarRocks/starrocks/pull/987)[# 1001](https://github.com/StarRocks/starrocks/pull/1001)
+* Fix the problem that FE cannot be upgraded in grayscale. [# 485](https://github.com/StarRocks/starrocks/pull/485) [# 890](https://github.com/StarRocks/starrocks/pull/890)
