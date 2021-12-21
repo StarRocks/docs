@@ -6,7 +6,7 @@ StarRocks allows users to add, view, and delete SQL blacklists.
 
 ## Syntax
 
-EnabeSQL blacklisting via `enable_sql_blacklist`. The default is False (off).
+EnableSQL blacklisting via `enable_sql_blacklist`. The default is False (off).
 
 ~~~sql
 admin set frontend config ("enable_sql_blacklist" = "true")
