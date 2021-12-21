@@ -31,7 +31,7 @@ yum install -y gnutls perl-DBD-MySQL perl-DBI perl-devel
 ### 2. Download the installation package
 
 ~~~shell
-wget https://github.com/sysown/proxysql/releases/download/v2.0.14/proxysql-2.0.14-1-centos7.x86\_64.rpm
+wget https://github.com/sysown/proxysql/releases/download/v2.0.14/proxysql-2.0.14-1-centos7.x86_64.rpm
 ~~~
 
 ### 3. Decompress to the current directory
