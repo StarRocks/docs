@@ -123,7 +123,6 @@ StarRocks supports two levels of partitioning storage, the first level is RANGE 
 
 * It is recommended to use a column with a large degree of differentiation for bucketing to avoid data skewing
 * To facilitate data recovery, it is recommended to keep  the size of each bucket around 10GB. Please consider the number of buckets when creating a table or adding a partition .
-* Random bucketing is not recommended, please specify a clear hash for bucketing.
 
 ### Sparse index and bloomfilter
 
