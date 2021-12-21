@@ -425,7 +425,7 @@ We import the data using stream load
 bin/stream_load.sh data_dir
 ```
 
-`data\_dir` is the data directory.
+`data_dir` is the data directory.
 
 ### Query
 
