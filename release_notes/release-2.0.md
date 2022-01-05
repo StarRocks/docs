@@ -18,7 +18,7 @@ Release date: january 5, 2022
   - Optimize the performance of dictionary with low cardinality [#791](https://github.com/StarRocks/starrocks/pull/791)
   - Optimize the scan performance of int for single table [#273](https://github.com/StarRocks/starrocks/issues/273)
   - Optimize the performance of `count(distinct int)` with high cardinality  [#139](https://github.com/StarRocks/starrocks/pull/139) [#250](https://github.com/StarRocks/starrocks/pull/250)  [#544](https://github.com/StarRocks/starrocks/pull/544)[#570](https://github.com/StarRocks/starrocks/pull/570)
-  - Optimize `Group by` 2 int / `limit` / `case when` / `not equa`l in implementation-level
+  - Optimize `Group by int` / `limit` / `case when` / `not equa`l in implementation-level
 - Memory management optimization
   - Refactor the memory statistics and control framework to accurately count memory usage and completely solve OOM
   - Optimize metadata memory usage
@@ -30,5 +30,5 @@ Release date: january 5, 2022
 - Fix the problem that the Hive external table is timeout to get metadata in a large amount.
 - Fix the problem of unclear error message of materialized view creation.
 - Fix the implementation of like in vectorization engine [#722](https://github.com/StarRocks/starrocks/pull/722)
-- Repair the error of parsing the predicate is in alter table[#725](https://github.com/StarRocks/starrocks/pull/725)
-- Fix the problem that the curdate function can not format the date
+- Repair the error of parsing the predicate is in `alter table`[#725](https://github.com/StarRocks/starrocks/pull/725)
+- Fix the problem that the `curdate` function can not format the date
