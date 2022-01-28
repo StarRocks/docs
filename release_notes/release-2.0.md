@@ -12,7 +12,7 @@ Release date: january 5, 2022
 - Implement complex expressions to be pushed down to the storage layer for computation, thus gaining performance gains
 - Primary Key is officially released, which supports Stream Load, Broker Load, Routine Load, and also provides a second-level synchronization tool for MySQL data based on Flink-cdc
 
-## Improvement
+### Improvement
 
 - Arithmetic operators optimization
   - Optimize the performance of dictionary with low cardinality [#791](https://github.com/StarRocks/starrocks/pull/791)
@@ -25,7 +25,7 @@ Release date: january 5, 2022
   - Solve the problem of large memory release stuck in execution threads for a long time
   - Add process graceful exit mechanism and support memory leak check [#1093](https://github.com/StarRocks/starrocks/pull/1093)
 
-## Bugfix
+### Bugfix
 
 - Fix the problem that the Hive external table is timeout to get metadata in a large amount.
 - Fix the problem of unclear error message of materialized view creation.
@@ -37,13 +37,13 @@ Release date: january 5, 2022
 
 Release date: january 21, 2022
 
-## Improvement
+### Improvement
 
 - Hive's implicit_cast operations can be read when StarRocks uses external tables to query Hive data. [#2829](https://github.com/StarRocks/starrocks/pull/2829)
 - The read/write lock is used to fix high CPU usage when StarRocks CBO collects statistics to support high-concurrency queries. [#2901](https://github.com/StarRocks/starrocks/pull/2901)
 - CBO statistics gathering and UNION operator are optimized.
 
-## Bugfix
+### Bugfix
 
 - The query error that is caused by inconsistent global dictionaries of replicas is fixed. [#2700](https://github.com/StarRocks/starrocks/pull/2700) [#2765](https://github.com/StarRocks/starrocks/pull/2765)
 - The error that the parameter `exec_mem_limit` during data loading does not take effect is fixed. [#2693](https://github.com/StarRocks/starrocks/pull/2693)
@@ -51,6 +51,6 @@ Release date: january 21, 2022
 - The OOM error that occurs when data is imported to the Primary Key Model is fixed. [#2743](https://github.com/StarRocks/starrocks/pull/2743) [#2777](https://github.com/StarRocks/starrocks/pull/2777)
 - The error that the BE node stops responding when StarRocks uses external tables to query large MySQL tables is fixed. [#2881](https://github.com/StarRocks/starrocks/pull/2881)
 
-## Behavior Change
+### Behavior Change
 
 StarRocks can use external tables to access Hive and its AWS S3-based external tables. However, the jar file that is used to access S3 data is too large and the binary package of StarRocks does not contain this jar file. If you want to use this jar file, you can download it from [Hive_s3_lib](https://cdn-thirdparty.starrocks.com/hive_s3_jar.tar.gz).
