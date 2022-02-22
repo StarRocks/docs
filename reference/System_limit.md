@@ -12,7 +12,7 @@ This section describes rules and restrictions of  using the StarRocks system.
 3. Naming conventions for labels
 The Label of the job can be specified when importing data. The label name can consist of hyphens (-), underscores (\_), letters (a-z or A-Z), and numbers (0-9), and cannot exceed 128 characters in length. The table signature has no requirement for starting characters.
 4. When creating a table, the key column cannot be of float or double type, but the decimal type can be used to represent decimals.
-5. Varchar can be up to 65533 bytes (two bytes less than 65535 because the first two bytes are used to indicate the length).
+5. Varchar can be up to 1MB.
 6. StarRocks only supports UTF8 encoding, but not GBK.
 7. StarRocks does not support modifying column names in tables.
 8. The default maximum length of SQL is 10000 bytes, which can be changed by `expr\_child\_limit` in `fe.conf`.
