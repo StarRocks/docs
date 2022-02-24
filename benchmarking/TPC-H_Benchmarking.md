@@ -1,6 +1,6 @@
 # TPC-H Benchmarking
 
-TPC-H is a decision support benchmark developed by the Transaction Processing Performance Council (TPC). It consists of a suite of business oriented ad-hoc queries and concurrent data modifications. 
+TPC-H is a decision support benchmark developed by the Transaction Processing Performance Council (TPC). It consists of a suite of business oriented ad-hoc queries and concurrent data modifications.
 TPC-H can be used to build models based on real production environments to simulate the data warehouse of a sales system. This test uses eight tables with a data size ranging from 1 GB to 3 TB. A total of 22 queries are tested and the main performance metrics are the response time of each query, which is the duration between the time a query is submitted to the time the result is returned.
 
 ## 1. Test Conclusion
@@ -1069,7 +1069,7 @@ group by
     l_suppkey;
 ```
 
-#### 4.2.2 Import Data 
+#### 4.2.2 Import Data
 
 1. Create Hive external tables in Hive. The table format is CSV. Upload CSV test data to the data storage directory on HDFS. In this example, the HDFS data storage path of the Hive external table is /user/tmp/csv/.
 
