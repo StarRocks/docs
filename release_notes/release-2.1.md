@@ -8,8 +8,9 @@ Release date: February 24, 2022
 
 - [Preview] StarRocks now supports Iceberg external tables.
 - [Preview] The pipeline engine is now available. It is a new execution engine designed for multicore scheduling. The query parallelism can be adaptively adjusted without the need to set the parallel_fragment_exec_instance_num parameter. This also improves performance in high concurrency scenarios.
-- The CTAS (CREATE TABLE AS SELECT) function is supported, making ETL and table creation easier.
+- The CTAS (CREATE TABLE AS SELECT) statement is supported, making ETL and table creation easier.
 - SQL fingerprint is supported. SQL fingerprint is generated in audit.log, which facilitates the location of slow queries.
+- The ANY_VALUE, ARRAY_REMOVE and SHA2 functions are supported.
 
 ### Improvements
 
