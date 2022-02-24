@@ -1,9 +1,7 @@
 # SSB Flat-table Benchmarking
 
 Star schema benchmark (SSB) is designed to test basic performance metrics of OLAP database products. SSB uses a star schema test set that is widely applied in academia and industry. For more information, see the paper [Star Schema Benchmark](https://www.cs.umb.edu/~poneil/StarSchemaB.PDF).
-
 ClickHouse flattens the star schema into a wide flat table and rewrites the SSB into a single-table benchmark. For more information, see [Star schema benchmark of ClickHouse](https://clickhouse.tech/docs/en/getting-started/example-datasets/star-schema/).
-
 This test compares the performance of StarRocks, Apache Druid, and ClickHouse against SSB single-table datasets and also compares the performance of StarRocks and ClickHouse in low-cardinality aggregation scenarios. 
 
 ## 1. Test Conclusion
@@ -11,11 +9,11 @@ This test compares the performance of StarRocks, Apache Druid, and ClickHouse ag
 - Among the 13 queries performed on SSB standard datasets, ClickHouse has a response time 1.7x that of StarRocks, and Apache Druid 2.2x that of StarRocks.
 - StarRocks performs even better when the bitmap indexing and cache features are enabled, especially on Q2.2, Q2.3, and Q3.3. The overall performance is 2.2x that of ClickHouse and 2.9x that of Apache Druid.
 
-![img](https://starrocks.feishu.cn/space/api/box/stream/download/asynccode/?code=MTZhMjBhNDM1M2Q2NGNjNDczZGMwMWRkYjA5NjI0ZDdfd09QUzhBYmZ4YXJFQjVwYng0RFlHWFN0RUo2WHh4RGRfVG9rZW46Ym94Y24xQnU2VktvUWlvQWJlY2J0RVlHVmNjXzE2NDU3MDY4MzA6MTY0NTcxMDQzMF9WNA)
+![overall comparison](/assets/7.1-1.png)
 
 - We also conduct tests on low-cardinality aggregation against standard datasets. ClickHouse has a query response time 2.26x that of StarRocks.
 
-![img](https://starrocks.feishu.cn/space/api/box/stream/download/asynccode/?code=ODAxYzA1MTViZjk0NTM5ZTAyZGQ5NzYzM2Q5MGI4ZDVfNk52bVV5YVQ4MlgxemxXVTR0ZWEybG02WVJrOGFXM1dfVG9rZW46Ym94Y252T25ZMDFuWE1pT21lVWFod2IyUDJiXzE2NDU3MDY4MzA6MTY0NTcxMDQzMF9WNA)
+![comparison on low-cardinality field](/assets/7.1-2.png)
 
 In the SSB single-table test and low-cardinality aggregation test, three cloud hosts with a configuration of 16-core CPU and 64 GB of memory are used to test data at a scale of 600 million rows of data.
 
@@ -244,7 +242,7 @@ For more information about how to create a ClickHouse table and import data to t
     bin/create_db_table.sh ddl_100
     ```
 
-  Following is the statement for creating table lineorder_flat. The default bucket number has been specified. You can delete the table and re-plan the bucket number based on your cluster size and node configuration, which helps achieve better test results.
+   Following is the statement for creating table lineorder_flat. The default bucket number has been specified. You can delete the table and re-plan the bucket number based on your cluster size and node configuration, which helps achieve better test results.
 
     ```SQL
     CREATE TABLE `lineorder_flat` (
@@ -301,73 +299,72 @@ For more information about how to create a ClickHouse table and import data to t
 
 3. Modify page_cache parameters and restart the BE node.
 
-  ```SQL
-    disable_storage_page_cache=false; -- Enable page_cache.
-    storage_page_cache_limit=4294967296; -- Specify page_cache_limit.
-  ```
+    ```SQL
+      disable_storage_page_cache=false; -- Enable page_cache.
+      storage_page_cache_limit=4294967296; -- Specify page_cache_limit.
+    ```
 
-If you want to test the performance of StarRocks with bitmap indexing enabled, you can perform the following steps. If you want to test standard performance, skip this step and proceed with data loading.
+   If you want to test the performance of StarRocks with bitmap indexing enabled, you can perform the following steps. If you want to test standard performance, skip this step and proceed with data loading.
 
-1. Create bitmap indexes for all string columns.
+4. Create bitmap indexes for all string columns.
 
-```SQL
-#Create bitmap indexes for lo_orderpriority, lo_shipmode, c_name, c_address, c_city, c_nation, c_region, c_phone, c_mktsegment, s_region, s_nation, s_city, s_name, s_address, s_phone, p_name, p_mfgr, p_category, p_brand, p_color, p_type, p_container.
-CREATE INDEX bitmap_lo_orderpriority ON lineorder_flat (lo_orderpriority) USING BITMAP;
-CREATE INDEX bitmap_lo_shipmode ON lineorder_flat (lo_shipmode) USING BITMAP;
-CREATE INDEX bitmap_c_name ON lineorder_flat (c_name) USING BITMAP;
-CREATE INDEX bitmap_c_address ON lineorder_flat (c_address) USING BITMAP;
-CREATE INDEX bitmap_c_city ON lineorder_flat (c_city) USING BITMAP;
-CREATE INDEX bitmap_c_nation ON lineorder_flat (c_nation) USING BITMAP;
-CREATE INDEX bitmap_c_region ON lineorder_flat (c_region) USING BITMAP;
-CREATE INDEX bitmap_c_phone ON lineorder_flat (c_phone) USING BITMAP;
-CREATE INDEX bitmap_c_mktsegment ON lineorder_flat (c_mktsegment) USING BITMAP;
-CREATE INDEX bitmap_s_region ON lineorder_flat (s_region) USING BITMAP;
-CREATE INDEX bitmap_s_nation ON lineorder_flat (s_nation) USING BITMAP;
-CREATE INDEX bitmap_s_city ON lineorder_flat (s_city) USING BITMAP;
-CREATE INDEX bitmap_s_name ON lineorder_flat (s_name) USING BITMAP;
-CREATE INDEX bitmap_s_address ON lineorder_flat (s_address) USING BITMAP;
-CREATE INDEX bitmap_s_phone ON lineorder_flat (s_phone) USING BITMAP;
-CREATE INDEX bitmap_p_name ON lineorder_flat (p_name) USING BITMAP;
-CREATE INDEX bitmap_p_mfgr ON lineorder_flat (p_mfgr) USING BITMAP;
-CREATE INDEX bitmap_p_category ON lineorder_flat (p_category) USING BITMAP;
-CREATE INDEX bitmap_p_brand ON lineorder_flat (p_brand) USING BITMAP;
-CREATE INDEX bitmap_p_color ON lineorder_flat (p_color) USING BITMAP;
-CREATE INDEX bitmap_p_type ON lineorder_flat (p_type) USING BITMAP;
-CREATE INDEX bitmap_p_container ON lineorder_flat (p_container) USING BITMAP;
-```
+    ```SQL
+    #Create bitmap indexes for lo_orderpriority, lo_shipmode, c_name, c_address, c_city, c_nation, c_region, c_phone, c_mktsegment, s_region, s_nation, s_city, s_name, s_address, s_phone, p_name, p_mfgr, p_category, p_brand, p_color, p_type, p_container.
+    CREATE INDEX bitmap_lo_orderpriority ON lineorder_flat (lo_orderpriority) USING BITMAP;
+    CREATE INDEX bitmap_lo_shipmode ON lineorder_flat (lo_shipmode) USING BITMAP;
+    CREATE INDEX bitmap_c_name ON lineorder_flat (c_name) USING BITMAP;
+    CREATE INDEX bitmap_c_address ON lineorder_flat (c_address) USING BITMAP;
+    CREATE INDEX bitmap_c_city ON lineorder_flat (c_city) USING BITMAP;
+    CREATE INDEX bitmap_c_nation ON lineorder_flat (c_nation) USING BITMAP;
+    CREATE INDEX bitmap_c_region ON lineorder_flat (c_region) USING BITMAP;
+    CREATE INDEX bitmap_c_phone ON lineorder_flat (c_phone) USING BITMAP;
+    CREATE INDEX bitmap_c_mktsegment ON lineorder_flat (c_mktsegment) USING BITMAP;
+    CREATE INDEX bitmap_s_region ON lineorder_flat (s_region) USING BITMAP;
+    CREATE INDEX bitmap_s_nation ON lineorder_flat (s_nation) USING BITMAP;
+    CREATE INDEX bitmap_s_city ON lineorder_flat (s_city) USING BITMAP;
+    CREATE INDEX bitmap_s_name ON lineorder_flat (s_name) USING BITMAP;
+    CREATE INDEX bitmap_s_address ON lineorder_flat (s_address) USING BITMAP;
+    CREATE INDEX bitmap_s_phone ON lineorder_flat (s_phone) USING BITMAP;
+    CREATE INDEX bitmap_p_name ON lineorder_flat (p_name) USING BITMAP;
+    CREATE INDEX bitmap_p_mfgr ON lineorder_flat (p_mfgr) USING BITMAP;
+    CREATE INDEX bitmap_p_category ON lineorder_flat (p_category) USING BITMAP;
+    CREATE INDEX bitmap_p_brand ON lineorder_flat (p_brand) USING BITMAP;
+    CREATE INDEX bitmap_p_color ON lineorder_flat (p_color) USING BITMAP;
+    CREATE INDEX bitmap_p_type ON lineorder_flat (p_type) USING BITMAP;
+    CREATE INDEX bitmap_p_container ON lineorder_flat (p_container) USING BITMAP;
+    ```
 
-1. Modify the following BE parameter and restart the BE node.
+5. Modify the following BE parameter and restart the BE node.
 
-```SQL
-bitmap_max_filter_ratio=1000; 
-```
+    ```SQL
+    bitmap_max_filter_ratio=1000; 
+    ```
 
 ### 4.3 Import Data
 
 1. Use Stream Load to import single-table data.
 
-```Bash
-bin/stream_load.sh data_dir
-```
+    ```Bash
+    bin/stream_load.sh data_dir
+    ```
 
-1. Insert data into the flat table lineorder_flat.
+2. Insert data into the flat table lineorder_flat.
 
-```Bash
-bin/flat_insert.sh 
-```
+    ```Bash
+    bin/flat_insert.sh 
+    ```
 
 ### 4.4 Query Data
 
-SSB query
+1. SSB query
 
-```Bash
-bin/benchmark.sh -p -d ssb
+    ```Bash
+    bin/benchmark.sh -p -d ssb
+    bin/benchmark.sh -p -d ssb-flat
+    ```
 
-bin/benchmark.sh -p -d ssb-flat
-```
+2. Low-cardinality field query
 
-Low-cardinality field query
-
-```Bash
-bin/benchmark.sh -p -d ssb-low_cardinality
-```
+    ```Bash
+    bin/benchmark.sh -p -d ssb-low_cardinality
+    ```
