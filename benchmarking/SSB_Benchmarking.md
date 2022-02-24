@@ -183,11 +183,11 @@ select count(*) from (select count(*) from lineorder_flat group by substr(lo_shi
 
 SSB flat-table tests
 
-![img](https://starrocks.feishu.cn/space/api/box/stream/download/asynccode/?code=YmI3MDNmNTU1ZDI4ZjYzZWEzZTFlZDQ2NjBjOTlmYzhfbHRHc2VyMUpRMWZhU3JzbmVpTlVTWUdmalMySW4wRlZfVG9rZW46Ym94Y24zSUZ0aHREeThqYTZ4SW93TEEyRUNvXzE2NDU3MDY4MzE6MTY0NTcxMDQzMV9WNA)
+![comparison](/assets/7.1-3.png)
 
 Low-cardinality aggregation tests
 
-![img](https://starrocks.feishu.cn/space/api/box/stream/download/asynccode/?code=M2EyZjZjNjViYjdkZDliMzAxODg5MWZjMjUyNmVmZjJfVHI3cGtuaXJ3eUV0cjBadlJIYVExeDdVMEZKa29rWWJfVG9rZW46Ym94Y242MXA5RWYyNlY0a3ViREtWSlFEeHFLXzE2NDU3MDY4MzE6MTY0NTcxMDQzMV9WNA)
+![comparison](/assets/7.1-4.png)
 
 ## 4. Test Procedure
 
