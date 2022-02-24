@@ -219,9 +219,9 @@ Implementation:
 
 Compared with the update model, the primary key model significantly improves query performance with only a minor write performance loss and low memory usage.
 
-## Use primary key model
+### Use primary key model
 
-### Create a table
+#### Create a table
 
 To enable the primary key model, you can specify the first few columns in the PRIMARY KEY keyword when you create a table, similar to using other databases.
 The following statement shows how to use the primary key model to create a table named 'order' partitioned by day.
@@ -284,17 +284,17 @@ c. The memory usage is calculated by using the following formula:
  `(12+ 9(Fixed memory usage per row))×100million×3×1.5(Extra memory usage per hash table) = 945 MB`
 * Currently, the primary key model only supports updating an entire row and does not support the update of specific columns in a row.
 
-### INSERT/UPDATE/DELETE
+#### INSERT/UPDATE/DELETE
 
 The INSERT, UPDATE, and DELETE operations can be implemented by loading tasks, such as stream load, broker load, and routine load. Spark load is not supported at present. SQL statements, such as INSERT, UPDATE, and DELETE will be supported in the upcoming versions.
 Currently, StarRocks does not distinguish between INSERT and UPSERT. All operations are regarded as UPSERT by default, including data loading by using stream load and broker load.
 To support both INSERT and UPSERT operations during data loading, StarRocks adds a special field __op to the syntax of stream load and broker load. This field is used to specify the operation type on a row. The value 0 indicates UPSERT and the value 1 indicates INSERT. You can add a column__op to store the operation type when you load data.
 
-### Use stream load and broker load to import data
+#### Use stream load and broker load to import data
 
 The data loading procedure is similar for stream load and broker load. The loading procedure varies based on the operation type of the data file to be loaded:
 
-* If the operation type is UPSERT, you do not need to add the __op column. You can set__op to upsert or leave it empty. StarRocks regards upsert as the default operation type. The following code is an example of the data to be imported to table t.
+* If the operation type is UPSERT, you do not need to add the `__op` column. You can set `__op` to upsert or leave it empty. StarRocks regards upsert as the default operation type. The following code is an example of the data to be imported to table t.
 
 ~~~Plain%20Text
 # data
@@ -332,7 +332,7 @@ load label demo.demo (
 ) with broker "broker1";
 ~~~
 
-* If the operation type is DELETE, you do not need to add the __op column. You only need to set__op to delete. The following code is an example of the data to delete.
+* If the operation type is DELETE, you do not need to add the `__op` column. You only need to set `__op` to delete. The following code is an example of the data to delete.
 
 ~~~Plain%20Text
 # Data to import
@@ -360,7 +360,7 @@ load label demo.ttt3 (
 ) with broker "broker1";  
 ~~~
 
-* If the operation type includes both UPDATE and DELETE,  you must specify  __op to indicate the operation types. The following code is an example of the data to import.
+* If the operation type includes both UPDATE and DELETE,  you must specify `__op` to indicate the operation types. The following code is an example of the data to import.
 
 ~~~Plain%20Text
 1,bbbb,1
@@ -391,9 +391,9 @@ load label demo.ttt3 (
 ) with broker "broker1";
 ~~~
 
-### Use routine load  to import data
+#### Use routine load  to import data
 
-In the statement for creating a data loading task using routine load, the __op column can be added at the end of the columns keyword. The value 0 indicates UPSERT and the value 1 indicates DELETE. The following code is an example of the data to import.
+In the statement for creating a data loading task using routine load, the `__op` column can be added at the end of the columns keyword. The value 0 indicates UPSERT and the value 1 indicates DELETE. The following code is an example of the data to import.
 
 ~~~Plain%20Text
 2020-06-23  2020-06-23 00:00:00 beijing haidian 1   -128    -32768  -2147483648    0
