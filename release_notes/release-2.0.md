@@ -57,11 +57,11 @@ StarRocks can use external tables to access Hive and its AWS S3-based external t
 
 ## 2.0.2
 
-Release date: February 24, 2022
+Release date: March 2, 2022
 
 ### Improvement
 
-Memory usage is optimized. Users can specify the label_keep_max_num parameter to control the maximum number of loading jobs to retain within a period of time. This prevents full GC caused by high memory usage of FE during frequent data loading.
+- Memory usage is optimized. Users can specify the label_keep_max_num parameter to control the maximum number of loading jobs to retain within a period of time. This prevents full GC caused by high memory usage of FE during frequent data loading.
 
 ### BugFix
 
