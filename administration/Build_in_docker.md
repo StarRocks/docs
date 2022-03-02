@@ -35,6 +35,7 @@ docker pull starrocks/dev-env:{version}
   ```shell
   docker run -it \
   -v /{local-path}/.m2:/root/.m2 \
+  -v /{local-path}/.ccache:/root/.ccache \
   -v /{local-path}/starrocks:/root/starrocks \
   --name {container-name} \
   -d starrocks/dev-env:{version}
