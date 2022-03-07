@@ -48,7 +48,6 @@ Example 1: Convert a date and time in Shanghai to Los_Angeles.
 
 ```Plain%20Text
 MySQL > select convert_tz('2019-08-01 13:21:03', 'Asia/Shanghai', 'America/Los_Angeles');
-
         -> 2019-07-31 22:21:03                                                       |
 ```
 
@@ -58,16 +57,12 @@ Example 2: Convert a date and time in UTC+08:00 to Los_Angeles.
 MySQL > select convert_tz('2019-08-01 13:21:03', '+08:00', 'America/Los_Angeles');
 
 +--------------------------------------------------------------------+
-
 | convert_tz('2019-08-01 13:21:03', '+08:00', 'America/Los_Angeles') |
-
 +--------------------------------------------------------------------+
-
 | 2019-07-31 22:21:03                                                |
-
 +--------------------------------------------------------------------+
 ```
 
 > - *Please describe the* *scenario* *of each example.*
-> - *If you need to describe more than one scenario in an example, add a comment for each scenario to help* *users quickly distinguish between them.* 
+> - *If you need to describe more than one scenario in an example, add a comment for each scenario to help* *users quickly distinguish between them.*
 > - *If the returned result is simple, the format in example* *1* *is recommended. Otherwise, the format in example 2 is recommended.*
