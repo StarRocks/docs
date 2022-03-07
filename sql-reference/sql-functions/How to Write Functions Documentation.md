@@ -55,7 +55,6 @@ Example 2: Convert a date and time in UTC+08:00 to Los_Angeles.
 
 ```Plain%20Text
 MySQL > select convert_tz('2019-08-01 13:21:03', '+08:00', 'America/Los_Angeles');
-
 +--------------------------------------------------------------------+
 | convert_tz('2019-08-01 13:21:03', '+08:00', 'America/Los_Angeles') |
 +--------------------------------------------------------------------+
