@@ -83,4 +83,4 @@ The following bugs are fixed:
 
 - Query fails when BE nodes are in suspended animation.
 - Query fails when there is no appropriate execution plan for single-tablet table joins.  [#3854](https://github.com/StarRocks/starrocks/issues/3854)
-- A deadlock problem may occur when a FE node collects information from a global dictionary for low-cardinality optimization. [#3839](https://github.com/StarRocks/starrocks/issues/3839)
+- A deadlock problem may occur may occur when an FE node collects information to build a global dictionary for low-cardinality optimization. [#3839](https://github.com/StarRocks/starrocks/issues/3839)
