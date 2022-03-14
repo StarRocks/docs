@@ -75,7 +75,7 @@ The following bugs are fixed:
 
 ## 2.0.3
 
-Release date: March xxx, 2022
+Release date: March 14, 2022
 
 ### BugFix
 
