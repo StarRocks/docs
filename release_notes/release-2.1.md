@@ -44,7 +44,7 @@ flink-connector-starrocks is now available for Flink to read StarRocks data in b
 
 ## 2.1.2
 
-Release date: March 10, 2022
+Release date: March 14, 2022
 
 ### BugFix
 
