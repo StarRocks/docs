@@ -108,6 +108,25 @@ Note:
 
 The start order of BE and FE should not be reversed. This is because if the upgrade causes incompatibility between different versions of FE and BE, commands from the new FE may cause the old BE to fail. This problem can be circumvented if the BE is started first. Because a new BE file has been deployed and the BE is already a new BE after it is automatically restarted via the daemon.
 
+##### Notes on upgrading from StarRocks 2.0 to StarRocks 2.1
+
+If we want to upgrade from 2.0 to 2.1 as a grey scale upgrade, we will need to ensure that the following configuration is the default
+
+1. Ensure that the vector_chunk_size is 4096 for all be's configuration items (default configuration)
+2. Ensure that the FE session variable batch_size is less than 4096 (default configuration is 1024)
+
+```sql
+mysql> show variables like '%batch_size%';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| batch_size    | 1024  |
++---------------+-------+
+1 row in set (0.00 sec)
+-- set batch_size
+mysql> set global batch_size = 4096;
+```
+
 ### Test the BE upgrade
 
 * Select an arbitrary BE node and deploy the latest `starrocks_be` binary.
