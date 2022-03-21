@@ -113,7 +113,7 @@ The start order of BE and FE should not be reversed. This is because if the upgr
 If you need to perform grayscale upgrade from StarRocks 2.0 to 2.1, you need to set the following settings in advance to ensure that the chunksize (i.e., the number of rows of data processed by the BE node in each batch) is the same for all BE nodes.
 
 * The configuration item vector_chunk_size for all BE nodes is 4096 (the default value is 4096 in rows).
-
+  > You can set the value of `vector_chunk_size` in the BE node's configuration file be.conf. When you successfully set the value of `vector_chunk_size`, you need to restart the BE node to make the change take effect.
 * The global variable batch_size of the FE node is less than or equal to 4096 (the default and recommended value is 4096 in rows).
 
 ```sql
