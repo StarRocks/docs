@@ -108,14 +108,16 @@ Note:
 
 The start order of BE and FE should not be reversed. This is because if the upgrade causes incompatibility between different versions of FE and BE, commands from the new FE may cause the old BE to fail. This problem can be circumvented if the BE is started first. Because a new BE file has been deployed and the BE is already a new BE after it is automatically restarted via the daemon.
 
-##### Notes on upgrading from StarRocks 2.0 to StarRocks 2.1
+##### Usage Notes for performing grayscale upgrade from StarRocks 2.0 to 2.1
 
-If we want to upgrade from 2.0 to 2.1 as a grey scale upgrade, we will need to ensure that the following configuration is the default
+If you need to perform grayscale upgrade from StarRocks 2.0 to 2.1, you need to set the following settings in advance to ensure that the chunksize (i.e., the number of rows of data processed by the BE node in each batch) is the same for all BE nodes.
 
-1. Ensure that the vector_chunk_size is 4096 for all be's configuration items (default configuration)
-2. Ensure that the FE session variable batch_size is less than 4096 (default configuration is 1024)
+* The configuration item vector_chunk_size for all BE nodes is 4096 (the default value is 4096 in rows).
+
+* The global variable batch_size of the FE node is less than or equal to 4096 (the default and recommended value is 4096 in rows).
 
 ```sql
+-- check batch_size
 mysql> show variables like '%batch_size%';
 +---------------+-------+
 | Variable_name | Value |
