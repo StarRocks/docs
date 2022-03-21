@@ -116,7 +116,7 @@ If you need to perform grayscale upgrade from StarRocks 2.0 to 2.1, you need to 
   > You can set the value of `vector_chunk_size` in the BE node's configuration file be.conf. When you successfully set the value of `vector_chunk_size`, you need to restart the BE node to make the change take effect.
 * The global variable batch_size of the FE node is less than or equal to 4096 (the default and recommended value is 4096 in rows).
 
-```sql
+```plain text
 -- check batch_size
 mysql> show variables like '%batch_size%';
 +---------------+-------+
@@ -125,6 +125,7 @@ mysql> show variables like '%batch_size%';
 | batch_size    | 1024  |
 +---------------+-------+
 1 row in set (0.00 sec)
+
 -- set batch_size
 mysql> set global batch_size = 4096;
 ```
