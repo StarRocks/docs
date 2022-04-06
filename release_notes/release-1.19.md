@@ -121,7 +121,7 @@ Release date: March 18, 2022
 
 ### Bug Fixes
 
-The following bug is fixed:
+The following bugs are fixed:
 
 * dataformat will produce different results in different versions. [#4165](https://github.com/StarRocks/starrocks/pull/4165)
 * BE nodes may fail because Parquet files are deleted by mistake during data loading. [#3521](https://github.com/StarRocks/starrocks/pull/3521)
