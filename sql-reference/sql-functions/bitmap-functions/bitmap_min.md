@@ -2,7 +2,7 @@
 
 ## Description
 
-Get the minimum value in bitmap. If bitmap is null, return null. If bitmap is empty, return -1 by default.
+Get the minimum value in the bitmap. If bitmap is null, return null. If bitmap is empty, return -1 by default.
 
 ## Syntax
 
