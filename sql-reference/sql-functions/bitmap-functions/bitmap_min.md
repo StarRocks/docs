@@ -41,6 +41,6 @@ MySQL > select bitmap_min(bitmap_empty());
 +----------------------------------+
 ```
 
-## keyword
+## Keywords
 
 BITMAP_MIN,BITMAP
