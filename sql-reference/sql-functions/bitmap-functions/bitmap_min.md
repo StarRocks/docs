@@ -1,16 +1,22 @@
-# bitmap_min
+# BITMAP_MIN
 
-## description
+## Description
 
-### Syntax
+Get the minimum value in the bitmap. If bitmap is null, return null. If bitmap is empty, return -1 by default.
 
-```Haskell
-BITMAP BITMAP_MIN(BITMAP bitmap)
-```
+## Syntax
 
-Get the minimum value in bitmap. if bitmap is null, return null. if bitmap is empty, return -1 by default.
+`BITMAP_MIN(bitmap_expr)`
 
-## example
+## Parameter
+
+`bitmap_expr`: a Bitmap expression, which can be constructed by functions, such as [BITMAP_FROM_STRING](./bitmap_from_string.md).
+
+## Return value
+
+Returns a BIGINT value.
+
+## Example
 
 ```Plain Text
 MySQL > select bitmap_min(bitmap_from_string("0, 1, 2, 3"));
@@ -19,14 +25,12 @@ MySQL > select bitmap_min(bitmap_from_string("0, 1, 2, 3"));
 +-------------------------------------------------+
 |                                               0 |
 +-------------------------------------------------+
-
 MySQL > select bitmap_min(bitmap_from_string("-1, 0, 1, 2"));
 +-------------------------------------------------+
 |   bitmap_min(bitmap_from_string('-1, 0, 1, 2')) |
 +-------------------------------------------------+
 |                                            NULL |
 +-------------------------------------------------+
-
 MySQL > select bitmap_min(bitmap_empty());
 +----------------------------------+
 |       bitmap_min(bitmap_empty()) |
@@ -35,6 +39,6 @@ MySQL > select bitmap_min(bitmap_empty());
 +----------------------------------+
 ```
 
-## keyword
+## Keywords
 
 BITMAP_MIN,BITMAP
