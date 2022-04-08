@@ -2,15 +2,15 @@
 
 ## Description
 
-Get the minimum value in the bitmap. If bitmap is null, return null. If bitmap is empty, return -1 by default.
+Get the minimum value in the bitmap. If the bitmap is null, the return value is null. If the bitmap is empty, the default return value is -1.
 
 ## Syntax
 
-`BITMAP_MIN(bitmap_expr)`
+`BITMAP_MIN(bitmap)`
 
 ## Parameter
 
-`bitmap_expr`: a Bitmap expression, which can be constructed by functions, such as [BITMAP_FROM_STRING](./bitmap_from_string.md).
+`bitmap`: a bitmap, which can be constructed by functions, such as [BITMAP_FROM_STRING](./bitmap_from_string.md).
 
 ## Return value
 
