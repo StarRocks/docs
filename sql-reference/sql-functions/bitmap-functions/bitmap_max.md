@@ -2,7 +2,7 @@
 
 ## Description
 
-Get the maximum value in the bitmap. If bitmap is null, return null. If bitmap is empty, return 0 by default.
+Get the maximum value in the bitmap. If the bitmap is null, the return value is null. If the bitmap is empty, the default return value is 0.
 
 ## Syntax
 
