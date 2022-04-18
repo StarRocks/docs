@@ -25,7 +25,7 @@ Release date: January 5, 2022
   - Solve the problem of large memory release stuck in execution threads for a long time
   - Add process graceful exit mechanism and support memory leak check [#1093](https://github.com/StarRocks/starrocks/pull/1093)
 
-### Bugfix
+### Bug Fixes
 
 - Fix the problem that the Hive external table is timeout to get metadata in a large amount.
 - Fix the problem of unclear error message of materialized view creation.
@@ -43,7 +43,7 @@ Release date: January 21, 2022
 - The read/write lock is used to fix high CPU usage when StarRocks CBO collects statistics to support high-concurrency queries. [#2901](https://github.com/StarRocks/starrocks/pull/2901)
 - CBO statistics gathering and UNION operator are optimized.
 
-### Bugfix
+### Bug Fixes
 
 - The query error that is caused by inconsistent global dictionaries of replicas is fixed. [#2700](https://github.com/StarRocks/starrocks/pull/2700) [#2765](https://github.com/StarRocks/starrocks/pull/2765)
 - The error that the parameter `exec_mem_limit` during data loading does not take effect is fixed. [#2693](https://github.com/StarRocks/starrocks/pull/2693)
@@ -63,7 +63,7 @@ Release date: March 2, 2022
 
 - Memory usage is optimized. Users can specify the label_keep_max_num parameter to control the maximum number of loading jobs to retain within a period of time. This prevents full GC caused by high memory usage of FE during frequent data loading.
 
-### BugFix
+### Bug Fixes
 
 The following bugs are fixed:
 
@@ -77,10 +77,23 @@ The following bugs are fixed:
 
 Release date: March 14, 2022
 
-### BugFix
+### Bug Fixes
 
 The following bugs are fixed:
 
 - Query fails when BE nodes are in suspended animation.
 - Query fails when there is no appropriate execution plan for single-tablet table joins.  [#3854](https://github.com/StarRocks/starrocks/issues/3854)
 - A deadlock problem may occur when an FE node collects information to build a global dictionary for low-cardinality optimization. [#3839](https://github.com/StarRocks/starrocks/issues/3839)
+
+## 2.0.4
+
+Release date: April 18, 2022
+
+### Bug Fixes
+
+The following bugs are fixed:
+
+- After deleting columns, adding new partitions, and cloning tablets,  the columns' unique ids in old and new tablets may not be the same, which may cause BE to stop working because the system uses a shared tablet schema. [#4514](https://github.com/StarRocks/starrocks/issues/4514)
+- When data is loading to a StarRocks external table, if the configured FE of the target StarRocks cluster is not a Leader, it will cause the FE to stop working. [#4573](https://github.com/StarRocks/starrocks/issues/4573)
+- Query results may be incorrect, when a Duplicate Key table performs schema change and creates materialized view at the same time. [#4839](https://github.com/StarRocks/starrocks/issues/4839)
+- The problem of possible data loss due to BE failure (solved by using Batch publish version). [#3140](https://github.com/StarRocks/starrocks/issues/3140)
