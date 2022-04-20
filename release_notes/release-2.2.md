@@ -31,7 +31,7 @@ The following bugs are fixed:
 
 - Deadlocks occur when data is loaded and changes are committed into tables based on Primary Key model. [#4998](https://github.com/StarRocks/starrocks/pull/4998)
 
-- Some FE (including BDBJE) stability issues. [#4428](https://github.com/StarRocks/starrocks/pull/4428)、[#4666] (https://github.com/StarRocks/starrocks/pull/4666)、[#2](https://github.com/StarRocks/bdb-je/pull/2)
+- Some FE (including BDBJE) stability issues. [#4428](https://github.com/StarRocks/starrocks/pull/4428)、[#4666](https://github.com/StarRocks/starrocks/pull/4666)、[#2](https://github.com/StarRocks/bdb-je/pull/2)
 
 - The return value overflows when the SUM function is used to calculate a large amount of data. [#3944](https://github.com/StarRocks/starrocks/pull/3944)
 
