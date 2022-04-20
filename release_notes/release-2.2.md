@@ -10,19 +10,18 @@ Release date: April 22, 2022
 - [Preview] Java UDFs (user-defined functions) are supported. StarRocks supports writing UDFs in Java, extending StarRocks' functions.
 - Primary key model supports partial updates when data is loaded to the primary key model using Stream Load, Broker Load, and Routine Load.  In real-time data update scenarios such as updating orders and joining multiple streams, partial updates allow users to update only a few columns.
 - [Preview] JSON data types and JSON functions are supported.
-- External tables based on Apache Hudi are supported, which further improves data lake analytics experience and delivers a query performance **x** **times** **that of Trino.**
+- External tables based on Apache Hudi are supported, which further improves data lake analytics experience.
 - The following functions are supported:
-  - ARRAY functions, including array_agg, array_sort, array_distinct, array_join, reverse, array_slice, array_concat, array_difference, array_overlap, and array_intersect
-  - BITMAP functions, including bitmap_max and bitmap_min
-  - Other functions, including retention and square
+  - ARRAY functions, including [array_agg](https://github.com/StarRocks/docs.zh-cn/pull/253), [array_sort](https://github.com/StarRocks/docs.zh-cn/pull/271), [array_distinct](https://github.com/StarRocks/docs.zh-cn/pull/266), [array_join](https://github.com/StarRocks/docs.zh-cn/pull/282), [reverse](https://github.com/StarRocks/docs.zh-cn/pull/272)、[array_slice](https://github.com/StarRocks/docs.zh-cn/pull/297) [、](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_concat](https://github.com/StarRocks/docs.zh-cn/pull/297) [,](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_difference](https://github.com/StarRocks/docs.zh-cn/pull/297) [,](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_overlap](https://github.com/StarRocks/docs.zh-cn/pull/297) [,](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_intersect](https://github.com/StarRocks/docs.zh-cn/pull/297).
+  - BITMAP functions, including [bitmap_max](https://github.com/StarRocks/docs.zh-cn/pull/374) [,](https://github.com/StarRocks/docs.zh-cn/pull/374) [bitmap_min](https://github.com/StarRocks/docs.zh-cn/pull/374)
+  - Other functions, including [retention](https://github.com/StarRocks/docs.zh-cn/pull/269),[square](https://github.com/StarRocks/docs.zh-cn/pull/364).
 
 ## Improvement
 
-- The performance of complex queries is optimized, such as those queries reusing common table expression (CTE). As TPC-DS results show, StarRocks delivers a performance up to x times that of Snowflake in complex queries.
+- The performance of complex queries is optimized, such as those queries reusing common table expression (CTE).
 - The query performance of object storage-based (AWS S3, Alibaba Cloud OSS) Apache Hive external table is optimized. After optimization, the performance of object storage-based queries is comparable to that of HDFS-based queries.
 - When external tables are used to query Apache Hive, StarRocks supports automatic and incremental updating of cached metastore data by consuming Hive Metastore events, such as data changes and partition changes. Moreover, it also supports querying DECIMAL and ARRAY data in Apache Hive.
 - The pipeline engine is released, which can adaptively adjust query parallelism. The pipeline engine's profile is optimized.
-
 - StarRocks supports the loading of CSV files with multi-character row delimiters.
 
 ### Bug Fixes
