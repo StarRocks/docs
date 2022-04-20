@@ -12,9 +12,9 @@ Release date: April 22, 2022
 - [Preview] JSON data types and JSON functions are supported.
 - External tables based on Apache Hudi are supported, which further improves data lake analytics experience.
 - The following functions are supported:
-  - ARRAY functions, including [array_agg](https://github.com/StarRocks/docs.zh-cn/pull/253), [array_sort](https://github.com/StarRocks/docs.zh-cn/pull/271), [array_distinct](https://github.com/StarRocks/docs.zh-cn/pull/266), [array_join](https://github.com/StarRocks/docs.zh-cn/pull/282), [reverse](https://github.com/StarRocks/docs.zh-cn/pull/272)、[array_slice](https://github.com/StarRocks/docs.zh-cn/pull/297) [、](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_concat](https://github.com/StarRocks/docs.zh-cn/pull/297) [,](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_difference](https://github.com/StarRocks/docs.zh-cn/pull/297) [,](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_overlap](https://github.com/StarRocks/docs.zh-cn/pull/297) [,](https://github.com/StarRocks/docs.zh-cn/pull/297) [array_intersect](https://github.com/StarRocks/docs.zh-cn/pull/297).
-  - BITMAP functions, including [bitmap_max](https://github.com/StarRocks/docs.zh-cn/pull/374) [,](https://github.com/StarRocks/docs.zh-cn/pull/374) [bitmap_min](https://github.com/StarRocks/docs.zh-cn/pull/374)
-  - Other functions, including [retention](https://github.com/StarRocks/docs.zh-cn/pull/269),[square](https://github.com/StarRocks/docs.zh-cn/pull/364).
+  - ARRAY functions, including array_agg, array_sort, array_distinct, array_join, reverse, array_slice, array_concat, array_difference, array_overlap, and array_intersect
+  - BITMAP functions, including bitmap_max and bitmap_min
+  - Other functions, including retention and square
 
 ## Improvement
 
