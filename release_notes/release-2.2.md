@@ -18,9 +18,10 @@ Release date: April 22, 2022
 
 ## Improvement
 
-- The performance of complex queries is optimized, such as those queries reusing common table expression (CTE).
-- The query performance of object storage-based (AWS S3, Alibaba Cloud OSS) Apache Hive external table is optimized. After optimization, the performance of object storage-based queries is comparable to that of HDFS-based queries.
+- CBO's Parser and Analyzer are reconstructed,  code structure is optimized and syntax such as Insert with CTE is supported. So the performance of complex queries is optimized, such as those queries reusing common table expression (CTE). 
+- The query performance of object storage-based (AWS S3, Alibaba Cloud OSS, Tencent COS) Apache Hive external table is optimized. After optimization, the performance of object storage-based queries is comparable to that of HDFS-based queries. Also, late materialization of ORC files is supported, improving query performance of small files.
 - When external tables are used to query Apache Hive, StarRocks supports automatic and incremental updating of cached metastore data by consuming Hive Metastore events, such as data changes and partition changes. Moreover, it also supports querying DECIMAL and ARRAY data in Apache Hive.
+- The performance of UNION ALL operator is optimized, delivering improvement of up to 2-25 times.
 - The pipeline engine is released, which can adaptively adjust query parallelism. The pipeline engine's profile is optimized.
 - StarRocks supports the loading of CSV files with multi-character row delimiters.
 
