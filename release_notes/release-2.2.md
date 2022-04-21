@@ -37,7 +37,7 @@ The following bugs are fixed:
 
 - The return values of ROUND and TRUNCATE functions have precision issues. [#4256](https://github.com/StarRocks/starrocks/pull/4256)
 
-- Some SQLancer issues. Please see [SQLancer related issues](https://github.com/StarRocks/starrocks/issues?q=is%3Aissue++label%3Asqlancer++milestone%3A2.2).
+- Some bugs detected by SQLancer. Please see [SQLancer related issues](https://github.com/StarRocks/starrocks/issues?q=is%3Aissue++label%3Asqlancer++milestone%3A2.2).
 
 ### Others
 
