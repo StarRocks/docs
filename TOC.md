@@ -206,6 +206,7 @@
       + [utc_timestamp](/sql-reference/sql-functions/date-time-functions/utc_timestamp.md)
       + [weekofyear](/sql-reference/sql-functions/date-time-functions/weekofyear.md)
       + [year](/sql-reference/sql-functions/date-time-functions/year.md)
+      + [date_floor](/sql-reference/sql-functions/date-time-functions/date_floor.md)
     + Geographic Functions
       + [st_astext](/sql-reference/sql-functions/spatial-functions/st_astext.md)
       + [st_circle](/sql-reference/sql-functions/spatial-functions/st_circle.md)
