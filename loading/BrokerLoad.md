@@ -1,10 +1,4 @@
-# Broker Load
 
-StarRocks supports importing data from external storage systems such as Apache HDFS, Amazon S3, etc. The supported file formats are CSV, ORC File, Parquet, etc. The data volume is in the range of tens to hundreds of GB.
-
-In broker load, StarRocks reads data from the corresponding data sources (e.g. HDFS, S3) through the deployed broker program, and uses its own computing resources to pre-process and import the data. This is an **asynchronous** import method that the user needs to create the import job via the MySQL protocol and view the import result by command.
-
-This section introduces broker load basics, examples, best practices, and frequently asked questions.
 
 ## Terminology Explanation
 
