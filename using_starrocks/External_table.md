@@ -72,7 +72,7 @@ Parameter description:
 
 StarRocks cannot access HDFS files directly. You must access HDFS through a broker. When creating a table, you must specify information about the HDFS files as well as the broker. For details about broker, see [Broker Import](...). /loading/BrokerLoad.md).
 
-## Elasticsearch external tables
+## Elasticsearch external table
 
 StarRocks and Elasticsearch are two popular analytics systems. StarRocks is performant in large-scale distributed computing. Elasticsearch is ideal for full-text search. StarRocks combined with Elasticsearch can deliver a more complete OLAP solution.
 
