@@ -373,7 +373,7 @@ DROP RESOURCE "iceberg0";
 
 #### Step 2: Create an Iceberg database
 
-Run the following command to create an Iceberg database named `iceberg_test ` in StarRocks.
+Run the following command to create an Iceberg database named `iceberg_test` in StarRocks.
 
 ~~~SQL
 CREATE DATABASE iceberg_test; 
