@@ -325,7 +325,7 @@ StarRocks has permissions to access the Hive metastore, HDFS cluster, and object
 
 * The compression formats of Iceberg data files must be GZIP (default value), ZSTD, LZ4, and SNAPPY.
 
-* The Iceberg catalog type must be a Hive catalog**.** The data storage format must be Parquet or ORC.
+* The Iceberg catalog type must be a Hive catalog. The data storage format must be Parquet or ORC.
 
 * Currently, StarRocks cannot synchronize [schema evolution](https://iceberg.apache.org/#evolution#schema-evolution)from Apache Iceberg. If the schema of the source Iceberg table changes, you must delete the Iceberg external table that corresponds to the source table and create another one in StarRocks.
 
