@@ -96,7 +96,7 @@ select date_1, smallint_1 from flink_test where char_1 `<>` 'A' and int_1 = -126
 
 - If you use Flink DataStream, you must add a dependency before you use flash-connector-starrocks to read StarRocks data.
 
-1. Add the following dependency to the `pom.xml` file.
+Add the following dependency to the `pom.xml` file.
 
 > Replace x.x.x with the latest version number of flink-connector-starrocks. You can click [version information](https://search.maven.org/search?q=g:com.starrocks)to obtain the latest version number.
 
@@ -134,7 +134,7 @@ select date_1, smallint_1 from flink_test where char_1 `<>` 'A' and int_1 = -126
 </dependency>
 ~~~
 
-2. Use flink-connector-starrocks to read data from StarRocks by referring to the following sample code. The following table describes the parameters in these commands.
+Use flink-connector-starrocks to read data from StarRocks by referring to the following sample code. The following table describes the parameters in these commands.
 
 ~~~Java
 StarRocksSourceOptions options = StarRocksSourceOptions.builder()
