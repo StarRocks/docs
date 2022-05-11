@@ -15,4 +15,4 @@ tablet_writer_open_rpc_timeout_sec=120
 
 ## The error "execute timeout" occurs when I run the INSER INTO SELECT command to load a large volume of data
 
-By default, the query timeout duration is 300s. You can set the `query_timeout` parameter to extend this duration. The unit is second.
+By default, the query timeout duration is 300s. You can set the `query_timeout` parameter to extend this duration.
