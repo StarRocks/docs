@@ -6,4 +6,4 @@ Currently, only insert is supported.
 
 ## How to process keywords when synchronizing data via DataX?
 
-Enclose a keyword in back quotes (``). If you want to download the newest version of DataX, see [DataX Writer.](../../loading/DataX-starrocks-writer)
+Enclose a keyword in back quotes (``). If you want to download the newest version of DataX, see [DataX Writer.](../../loading/DataX-starrocks-writer.md)
