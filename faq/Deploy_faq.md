@@ -8,7 +8,7 @@ This topic provides answers to some frequently asked questions about deployment.
 
 For example, if you have two IP addresses: 192.168.108.23 and 192.168.108.43. You might provide IP addresses as follows:
 
-- If you specify the addresses as 192.168.108.23/24, StarRocks will recognize them as 192.168.108.43. 
+- If you specify the addresses as 192.168.108.23/24, StarRocks will recognize them as 192.168.108.43.
 - If you specify the addresses as 192.168.108.23/32, StarRocks will recognize them as 127.0.0.1.
 
 ### Solution
@@ -51,7 +51,7 @@ wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 Yes. Perform the following steps to complete the modifications for an FE and a BE:
 
 - FE: You can complete the modification for an FE in one of the following ways:
-  - SQL 
+  - SQL
 
 ```Plain%20Text
 ADMIN SET FRONTEND CONFIG ("key" = "value");
@@ -63,7 +63,7 @@ Example:
 ADMIN SET FRONTEND CONFIG ("enable_statistic_collect" = "false");
 ```
 
-- Shell 
+- Shell
 
 ```Plain%20Text
 curl --location-trusted -u username:password http://ip:fe_http_port/api/_set_config?key=value
@@ -99,7 +99,7 @@ This error occurs when a BE does not have enough disk space to load data from Fl
 
 Patches to this bug is still under active development. Currently, you can troubleshoot it in the following two ways:
 
-- Manually distributing data on all disks. 
+- Manually distributing data on all disks.
 - If the data on these disks is not important, we recommend deleting the disks. After you delete the disks and switch the disk directory, this error occurs again. You can then truncate the 11903 table  to solve it.
 
 ## This error "Fe type:unknown ,is ready :false." occurs when I start an FE during the cluster restart
