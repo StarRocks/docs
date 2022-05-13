@@ -8,8 +8,8 @@ This topic provides answers to some frequently asked questions about deployment.
 
 For example, if you have two IP addresses: 192.168.108.23 and 192.168.108.43. You might provide IP addresses as follows:
 
-- \- If you specify the addresses as 192.168.108.23/24, StarRocks will recognize them as 192.168.108.43. 
-- \- If you specify the addresses as 192.168.108.23/32, StarRocks will recognize them as 127.0.0.1.
+- If you specify the addresses as 192.168.108.23/24, StarRocks will recognize them as 192.168.108.43. 
+- If you specify the addresses as 192.168.108.23/32, StarRocks will recognize them as 127.0.0.1.
 
 ### Solution
 
