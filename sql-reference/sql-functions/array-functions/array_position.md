@@ -39,7 +39,7 @@ mysql> select array_position(["apple","orange","pear"], "orange");
 1 row in set (0.01 sec)
 ```
 
-- Example 2: Obtain the position of `NULL` in an array. 
+- Example 2: Obtain the position of `NULL` in an array.
 
 ```VBScript
 mysql> select array_position([1, NULL], NULL);
