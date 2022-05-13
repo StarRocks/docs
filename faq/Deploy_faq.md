@@ -99,7 +99,7 @@ This error occurs when a BE does not have enough disk space to load data from Fl
 
 Patches to this bug is still under active development. Currently, you can troubleshoot it in the following two ways:
 
-- Manually distributing data on all disks. 
+- Manually distributing data on all disks.
 - If the data on these disks is not important, we recommend deleting the disks. After you delete the disks and switch the disk directory, this error occurs again. You can then truncate the 11903 table  to solve it.
 
 ## This error "Fe type:unknown ,is ready :false." occurs when I start an FE during the cluster restart
