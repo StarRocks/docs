@@ -1,4 +1,4 @@
-# Scale StarRocks node in and out
+# Scale in and out
 
 This topic describes how to scale in and out the node of StarRocks.
 
@@ -62,4 +62,4 @@ Drop backend is a dangerous operation, so you need to confirm it twice before ex
 
 * `alter system drop backend "be_host:be_heartbeat_service_port";`
 
-The status of FE and BE after scale-out can also be checked by [Cluster Status](Cluster_administration.md#confirm-cluster-health-status).
+After the scale-out or scale-in, you can check the status of FE and BE by referring to [Cluster Status](Cluster_administration.md#confirm-cluster-health-status).
