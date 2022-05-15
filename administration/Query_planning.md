@@ -6,9 +6,9 @@ You can view query information in `fe/log/fe.audit.log`. Each query corresponds 
 
 ## Plan analysis
 
-In StarRocks, the lifecycle of an SQL statement can be divided into three phases: query parsing, query plan, and query execution. Query parsing is generally not a bottleneck because the required QPS is not high.
+In StarRocks, the lifecycle of an SQL statement can be divided into three phases: query parsing, query planning, and query execution. Query parsing is generally not a bottleneck because the required QPS of analytic workloads is not high.
 
-Query performance in StarRocks is determined by query plan and query execution. Query plan is responsible for coordinating operators (Join/Order/Aggregate), and query execution is responsible for running specific operations.
+Query performance in StarRocks is determined by query planning and query execution. Query planning is responsible for coordinating operators (Join/Order/Aggregate), and query execution is responsible for running specific operations.
 
 A query plan provides the DBA with a macro perspective to access query information. A query plan is the key to query performance and a good resource for the DBA to reference. The following code snippet uses `TPCDS query96` as an example to show how to view a query plan.
 
