@@ -32,6 +32,8 @@
 + Data Export
   + [Export](/unloading/Export.md)
   + [Spark Connector](/unloading/Spark_connector.md)
+  + [Flink Connector](/unloading/Flink_connector.md)
+
 + Using StarRocks
   + [Precise De-duplication with Bitmap](/using_starrocks/Using_bitmap.md)
   + [Approximate De-duplication with HLL](/using_starrocks/Using_HLL.md)
@@ -97,6 +99,7 @@
       + [CREATE MATERIALIZED VIEW](/sql-reference/sql-statements/data-definition/CREATE%20MATERIALIZED%20VIEW.md)
       + [CREATE REPOSITORY](/sql-reference/sql-statements/data-definition/CREATE%20REPOSITORY.md)
       + [CREATE RESOURCE](/sql-reference/sql-statements/data-definition/CREATE%20RESOURCE.md)
+      + [CREATE TABLE AS SELECT](/sql-reference/sql-statements/data-definition/CREATE20%TABLE20%AS20%SELECT.md)
       + [CREATE TABLE LIKE](/sql-reference/sql-statements/data-definition/CREATE%20TABLE%20LIKE.md)
       + [CREATE TABLE](/sql-reference/sql-statements/data-definition/CREATE%20TABLE.md)
       + [CREATE VIEW](/sql-reference/sql-statements/data-definition/CREATE%20VIEW.md)
