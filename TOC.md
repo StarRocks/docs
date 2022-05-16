@@ -32,6 +32,7 @@
 + Data Export
   + [Export](/unloading/Export.md)
   + [Spark Connector](/unloading/Spark_connector.md)
+  + [Flink Connector](/unloading/Flink_connector.md)
 + Using StarRocks
   + [Precise De-duplication with Bitmap](/using_starrocks/Using_bitmap.md)
   + [Approximate De-duplication with HLL](/using_starrocks/Using_HLL.md)
