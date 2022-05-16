@@ -1,4 +1,4 @@
-# FAQ: Deployment
+# Deployment FAQ
 
 This topic provides answers to some frequently asked questions about deployment.
 
@@ -24,15 +24,15 @@ When installing a BE, the system reports a startup error: StarRocks Be http serv
 
 This error occurs because the web services port of the BE is occupied. Try to modify the ports in the `be.conf` file and restart the BE.
 
-## Can StarRocks run on the operating system of SUSE 12SPS?
+## Can StarRocks run on SUSE 12SPS?
 
 Yes.
 
-## What do I do when this error occurs: ERROR 1064 (HY000): Could not initialize class com.starrocks.rpc.BackendServiceProxy?
+## What do I do when the error occurs: ERROR 1064 (HY000): Could not initialize class com.starrocks.rpc.BackendServiceProxy?
 
 This error occurs when you run programs in Java Runtime Environment (JRE). To solve this problem, replace JRE with Java Development Kit (JDK). We recommend that you use Oracle's JDK 1.8 or later.
 
-## The error "Failed to Distribute files to node" occurs when I deploy StarRocks of Enterprise Edition and configure nodes
+## Why does the error "Failed to Distribute files to node" occur when I deploy StarRocks of Enterprise Edition and configure nodes?
 
 This error occurs when Setuptools versions installed on multiple frontends (FEs) are inconsistent. To solve this problem, you can execute the following command as a root user.
 
@@ -83,7 +83,7 @@ curl --location-trusted -u root:root  http://192.168.110.101:8030/api/_set_confi
 curl -XPOST -u username:password http://ip:be_http_port/api/update_config?key=value
 ```
 
-**Note**: Make sure that the user has permission to log in remotely. If not, you can grant the permission to the user in the following way:
+> Note: Make sure that the user has permission to log in remotely. If not, you can grant the permission to the user in the following way:
 
 ```Plain%20Text
 CREATE USER 'test'@'%' IDENTIFIED BY '123456';
