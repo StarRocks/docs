@@ -18,7 +18,7 @@ There are the following two ways to solve this problem:
 - Do not add "32" at the end of an IP address or change "32" to "28".
 - You can also upgrade to StarRocks 2.1 or later.
 
-## The error "StarRocks BE http service did not start correctly, exiting" occurs when I start a backend (BE) after installation
+## Why does the error "StarRocks BE http service did not start correctly, exiting" occur when I start a backend (BE) after installation?
 
 When installing a BE, the system reports a startup error: StarRocks Be http service did not start correctly, exiting.
 
@@ -104,19 +104,19 @@ Patches to this bug is still under active development. Currently, you can troubl
 - Manually distributing data on all disks.
 - If the data on these disks is not important, we recommend deleting the disks. After you delete the disks and switch the disk directory, this error occurs again. You can then truncate the 11903 table  to solve it.
 
-## This error "Fe type:unknown ,is ready :false." occurs when I start an FE during the cluster restart
+## Why does the error "Fe type:unknown ,is ready :false." occur when I start an FE during the cluster restart?
 
 Check if the master FE is running. If not, restart the FE nodes in your cluster one by one.
 
-## This error "failed to get service info err." occurs when I install the cluster
+## Why does the error "failed to get service info err." occur when I deploy the cluster?
 
 Check if OpenSSH Daemon (sshd) is enabled. If not, run the `/etc/init.d/sshd`` status` command to enable it.
 
-## This error "Fail to get master client from `cache. ``host= port=0 code=THRIFT_RPC_ERROR`" occurs when I start a BE
+## Why does the error "Fail to get master client from `cache. ``host= port=0 code=THRIFT_RPC_ERROR`" occur when I start a BE?
 
 Run the `netstat -anp |grep port` command to check whether the ports in the `be.conf` file are occupied. If so, replace the occupied port with a free port and then restart the BE.
 
-## The error "Failed to transport upgrade files to agent host. src:…" occurs when I upgrade a cluster of the Enterprise Edition
+## Why does the error "Failed to transport upgrade files to agent host. src:…" occur when I upgrade a cluster of the Enterprise Edition?
 
 This error occurs when the disk space specified in the deployment directory is insufficient. During the cluster upgrade, the StarRocks Manager distributes the binary file of the new version to each node. If the disk space specified in the deployment directory is insufficient, the file cannot be distributed to each node. To solve this problem, add data disks.
 
@@ -126,7 +126,7 @@ This error occurs when the disk space specified in the deployment directory is i
 
 `/starrocks-manager-xxx/center/log/webcenter/log/web/``drms.INFO`(you can customize the path). Then find that whether the message "Failed to update FE configurations" display in the log. If so, restart the corresponding FE to obtain the new path configuration.
 
-## This error "exceeds max permissable delta:5000ms." occurs when I start an FE
+## Why does the error "exceeds max permissable delta:5000ms." occur when I start an FE?
 
 This error occurs when the time difference between two machines is more than 5s. To solve this problem, align the time of these two machines.
 
@@ -134,7 +134,7 @@ This error occurs when the time difference between two machines is more than 5s.
 
 Configure the `storage_root_path` parameter in the `be.conf` file and separate values of this parameter with `;`. For example: `storage_root_path=/the/path/to/storage1;/the/path/to/storage2;/the/path/to/storage3;`
 
-## This error "invalid cluster id: 209721925." occurs after an FE is added to my cluster
+## Why does the error "invalid cluster id: 209721925." occur after an FE is added to my cluster?
 
 If you do not add the `--helper` option for this FE when starting your cluster for the first time, the metadata between two machines is inconsistent, thus this error occurs. To solve this problem, you need to   clear all metadata under the meta directory and then add an FE with the `--helper` option.
 
