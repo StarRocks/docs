@@ -18,9 +18,9 @@ There are the following two ways to solve this problem:
 - Do not add "32" at the end of an IP address or change "32" to "28".
 - You can also upgrade to StarRocks 2.1 or later.
 
-## The error "StarRocks BE http service did not start correctly, exiting" occurs when I start a backend (BE) after installation.
+## The error "StarRocks BE http service did not start correctly, exiting" occurs when I start a backend (BE) after installation
 
-When installing "be", the system reports a startup error: StarRocks Be http service did not start correctly, exiting.
+When installing a BE, the system reports a startup error: StarRocks Be http service did not start correctly, exiting.
 
 This error occurs because the web services port of the BE is occupied. Try to modify the ports in the `be.conf` file and restart the BE.
 
@@ -140,4 +140,4 @@ If you do not add the `--helper` option for this FE when starting your cluster f
 
 ## Why Alive is `false` when an FE is running and prints log `transfer: follower`?
 
-This issue occurs when more than half of memory of Java Virtual Machine (JVM) is used and no checkpoint is marked. In general, a checkpoint will be marked after the system accumulates 50,000 peices of log. We recommend that you modify the JVM's parameters of each FE and restarting these FEs when they are not heavily loaded.
+This issue occurs when more than half of memory of Java Virtual Machine (JVM) is used and no checkpoint is marked. In general, a checkpoint will be marked after the system accumulates 50,000 pieces of log. We recommend that you modify the JVM's parameters of each FE and restarting these FEs when they are not heavily loaded.
