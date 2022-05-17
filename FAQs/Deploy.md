@@ -18,7 +18,7 @@ There are the following two ways to solve this problem:
 - Do not add "32" at the end of an IP address or change "32" to "28".
 - You can also upgrade to StarRocks 2.1 or later.
 
-## The error "StarRocks BE http service did not start correctly, exiting" occurs when I start a backend (BE) after installation.
+## The error "StarRocks BE http service did not start correctly, exiting" occurs when I start a backend (BE) after installation
 
 When installing "be", the system reports a startup error: StarRocks Be http service did not start correctly, exiting.
 
