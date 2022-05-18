@@ -283,6 +283,7 @@
       + [bitmap_xor](/sql-reference/sql-functions/bitmap-functions/bitmap_xor.md)
       + [to_bitmap](/sql-reference/sql-functions/bitmap-functions/to_bitmap.md)
     + Array Functions
+      + [array_agg](/sql-reference/sql-functions/array-functions/array_agg.md)
       + [array_append](/sql-reference/sql-functions/array-functions/array_append.md)
       + [array_avg](/sql-reference/sql-functions/array-functions/array_avg.md)
       + [array_contains](/sql-reference/sql-functions/array-functions/array_contains.md)
@@ -321,19 +322,18 @@
     + [Memory Management](/administration/Memory_management.md)
     + [Load Balance](/administration/Load_balance.md)
 + FAQs
-  + [Deploy](/faq/Deploy_faq.md)
+  + [Deployemnt FAQs](/faq/Deploy_faq.md)
   + Data Migration
     + Data Ingestion
-      + [Data Ingestion FAQ](/faq/loading/Loading_faq.md)
-      + [Stream Load](/faq/loading/Stream_load_faq.md)
-      + [Routine Load](/faq/loading/Routine_load_faq.md)
-      + [Broker Load](/faq/loading/Broker_load_faq.md)
-      + [Spark Load](/faq/loading/Spark_load_faq.md)
-      + [Insert Into](/faq/loading/Insert_into_faq.md)
-      + [Flink connector](/faq/loading/Flink_connector_faq.md)
-      + [DataX](/faq/loading/DataX_faq.md)
-      + [Others](/faq/loading/Others.md)
-    + [Data Export](/faq/Exporting_faq.md)
+      + [Loading FAQs](/faq/loading/Loading_faq.md)
+      + [Stream Load FAQs](/faq/loading/Stream_load_faq.md)
+      + [Routine Load FAQs](/faq/loading/Routine_load_faq.md)
+      + [Broker Load FAQs](/faq/loading/Broker_load_faq.md)
+      + [Insert Into FAQs](/faq/loading/Insert_into_faq.md)
+      + [Flink connector FAQs](/faq/loading/Flink_connector_faq.md)
+      + [DataX FAQs](/faq/loading/DataX_faq.md)
+    + [Data Export FAQs](/faq/Exporting_faq.md)
+  + [SQL FAQs](/faq/Sql_faq.md)
 + Benchmark
   + [SSB Benchmark](/benchmarking/SSB_Benchmarking.md)
   + [TPC-H Benchmark](/benchmarking/TPC-H_Benchmarking.md)
