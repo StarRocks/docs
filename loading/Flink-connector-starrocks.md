@@ -35,177 +35,177 @@ To load data from Apache Flink® into StarRocks by using flink-connector-starroc
 
     - Load data as raw JSON string streams.
 
-    ```Plain%20Text
-    // -------- sink with raw json string stream --------
+        ```Plain%20Text
+        // -------- sink with raw json string stream --------
 
-    fromElements(new String[]{
+        fromElements(new String[]{
 
-        "{\"score\": \"99\", \"name\": \"stephen\"}",
+            "{\"score\": \"99\", \"name\": \"stephen\"}",
 
-        "{\"score\": \"100\", \"name\": \"lebron\"}"
+            "{\"score\": \"100\", \"name\": \"lebron\"}"
 
-    }).addSink(
+        }).addSink(
 
-        StarRocksSink.sink(
+            StarRocksSink.sink(
 
-            // the sink options
+                // the sink options
 
-            StarRocksSinkOptions.builder()
+                StarRocksSinkOptions.builder()
 
-                .withProperty("jdbc-url", "jdbc:mysql://fe1_ip:query_port,fe2_ip:query_port,fe3_ip:query_port?xxxxx")
+                    .withProperty("jdbc-url", "jdbc:mysql://fe1_ip:query_port,fe2_ip:query_port,fe3_ip:query_port?xxxxx")
 
-                .withProperty("load-url", "fe1_ip:http_port;fe2_ip:http_port;fe3_ip:http_port")
+                    .withProperty("load-url", "fe1_ip:http_port;fe2_ip:http_port;fe3_ip:http_port")
 
-                .withProperty("username", "xxx")
+                    .withProperty("username", "xxx")
 
-                .withProperty("password", "xxx")
+                    .withProperty("password", "xxx")
 
-                .withProperty("table-name", "xxx")
+                    .withProperty("table-name", "xxx")
 
-                .withProperty("database-name", "xxx")
+                    .withProperty("database-name", "xxx")
 
-                .withProperty("sink.properties.format", "json")
+                    .withProperty("sink.properties.format", "json")
 
-                .withProperty("sink.properties.strip_outer_array", "true")
+                    .withProperty("sink.properties.strip_outer_array", "true")
 
-                .build()
+                    .build()
 
-        )
+            )
 
-    );
-
-
+        );
 
 
 
-    // -------- sink with stream transformation --------
 
-    class RowData {
 
-        public int score;
+        // -------- sink with stream transformation --------
 
-        public String name;
+        class RowData {
 
-        public RowData(int score, String name) {
+            public int score;
 
-            ......
+            public String name;
 
-        }
+            public RowData(int score, String name) {
 
-    }
-
-    fromElements(
-
-        new RowData[]{
-
-            new RowData(99, "stephen"),
-
-            new RowData(100, "lebron")
-
-        }
-
-    ).addSink(
-
-        StarRocksSink.sink(
-
-            // the table structure
-
-            TableSchema.builder()
-
-                .field("score", DataTypes.INT())
-
-                .field("name", DataTypes.VARCHAR(20))
-
-                .build(),
-
-            // the sink options
-
-            StarRocksSinkOptions.builder()
-
-                .withProperty("jdbc-url", "jdbc:mysql://fe1_ip:query_port,fe2_ip:query_port,fe3_ip:query_port?xxxxx")
-
-                .withProperty("load-url", "fe1_ip:http_port;fe2_ip:http_port;fe3_ip:http_port")
-
-                .withProperty("username", "xxx")
-
-                .withProperty("password", "xxx")
-
-                .withProperty("table-name", "xxx")
-
-                .withProperty("database-name", "xxx")
-
-                .withProperty("sink.properties.format", "csv")  
-
-                .withProperty("sink.properties.column_separator", "\\x01")
-
-                .withProperty("sink.properties.row_delimiter", "\\x02")
-
-                .build(),
-
-            // set the slots with streamRowData
-
-            (slots, streamRowData) -> {
-
-                slots[0] = streamRowData.score;
-
-                slots[1] = streamRowData.name;
+                ......
 
             }
 
-        )
+        }
 
-    );
-    ```
+        fromElements(
+
+            new RowData[]{
+
+                new RowData(99, "stephen"),
+
+                new RowData(100, "lebron")
+
+            }
+
+        ).addSink(
+
+            StarRocksSink.sink(
+
+                // the table structure
+
+                TableSchema.builder()
+
+                    .field("score", DataTypes.INT())
+
+                    .field("name", DataTypes.VARCHAR(20))
+
+                    .build(),
+
+                // the sink options
+
+                StarRocksSinkOptions.builder()
+
+                    .withProperty("jdbc-url", "jdbc:mysql://fe1_ip:query_port,fe2_ip:query_port,fe3_ip:query_port?xxxxx")
+
+                    .withProperty("load-url", "fe1_ip:http_port;fe2_ip:http_port;fe3_ip:http_port")
+
+                    .withProperty("username", "xxx")
+
+                    .withProperty("password", "xxx")
+
+                    .withProperty("table-name", "xxx")
+
+                    .withProperty("database-name", "xxx")
+
+                    .withProperty("sink.properties.format", "csv")  
+
+                    .withProperty("sink.properties.column_separator", "\\x01")
+
+                    .withProperty("sink.properties.row_delimiter", "\\x02")
+
+                    .build(),
+
+                // set the slots with streamRowData
+
+                (slots, streamRowData) -> {
+
+                    slots[0] = streamRowData.score;
+
+                    slots[1] = streamRowData.name;
+
+                }
+
+            )
+
+        );
+        ```
 
     - Load data as tables.  
 
-    ```Plain%20Text
-    // create a table with `structure` and `properties`
+        ```Plain%20Text
+        // create a table with `structure` and `properties`
 
-    // Needed: Add `com.starrocks.connector.flink.table.StarRocksDynamicTableSinkFactory` to: `src/main/resources/META-INF/services/org.apache.flink.table.factories.Factory`
+        // Needed: Add `com.starrocks.connector.flink.table.StarRocksDynamicTableSinkFactory` to: `src/main/resources/META-INF/services/org.apache.flink.table.factories.Factory`
 
-    tEnv.executeSql(
+        tEnv.executeSql(
 
-        "CREATE TABLE USER_RESULT(" +
+            "CREATE TABLE USER_RESULT(" +
 
-            "name VARCHAR," +
+                "name VARCHAR," +
 
-            "score BIGINT" +
+                "score BIGINT" +
 
-        ") WITH ( " +
+            ") WITH ( " +
 
-            "'connector' = 'starrocks'," +
+                "'connector' = 'starrocks'," +
 
-            "'jdbc-url'='jdbc:mysql://fe1_ip:query_port,fe2_ip:query_port,fe3_ip:query_port?xxxxx'," +
+                "'jdbc-url'='jdbc:mysql://fe1_ip:query_port,fe2_ip:query_port,fe3_ip:query_port?xxxxx'," +
 
-            "'load-url'='fe1_ip:http_port;fe2_ip:http_port;fe3_ip:http_port'," +
+                "'load-url'='fe1_ip:http_port;fe2_ip:http_port;fe3_ip:http_port'," +
 
-            "'database-name' = 'xxx'," +
+                "'database-name' = 'xxx'," +
 
-            "'table-name' = 'xxx'," +
+                "'table-name' = 'xxx'," +
 
-            "'username' = 'xxx'," +
+                "'username' = 'xxx'," +
 
-            "'password' = 'xxx'," +
+                "'password' = 'xxx'," +
 
-            "'sink.buffer-flush.max-rows' = '1000000'," +
+                "'sink.buffer-flush.max-rows' = '1000000'," +
 
-            "'sink.buffer-flush.max-bytes' = '300000000'," +
+                "'sink.buffer-flush.max-bytes' = '300000000'," +
 
-            "'sink.buffer-flush.interval-ms' = '5000'," +
+                "'sink.buffer-flush.interval-ms' = '5000'," +
 
-            "'sink.properties.column_separator' = '\\x01'," +
+                "'sink.properties.column_separator' = '\\x01'," +
 
-            "'sink.properties.row_delimiter' = '\\x02'," +
+                "'sink.properties.row_delimiter' = '\\x02'," +
 
-            "'sink.max-retries' = '3'" +
+                "'sink.max-retries' = '3'" +
 
-            "'sink.properties.*' = 'xxx'" + // stream load properties like `'sink.properties.columns' = 'k1, v1'`
+                "'sink.properties.*' = 'xxx'" + // stream load properties like `'sink.properties.columns' = 'k1, v1'`
 
-        ")"
+            ")"
 
-    );
-    ```
+        );
+        ```
 
 The following table describes the `sink` options that you can configure when you load data as tables.
 
@@ -234,7 +234,7 @@ When you load data from Apache Flink® into StarRocks, take note of the followin
   1. Save data and its label at each checkpoint that is completed at a specific checkpoint interval.
   2. After data and labels are saved, block the flushing of data cached in the state at the first invoke after each checkpoint is completed.
 
-If StarRocks unexpectedly exits, the operators for Apache Flink® sink streaming are blocked for a long time and Apache Flink® issues a monitoring alert or shuts down.
+    If StarRocks unexpectedly exits, the operators for Apache Flink® sink streaming are blocked for a long time and Apache Flink® issues a monitoring alert or shuts down.
 
 - By default, data is loaded in the CSV format. You can set the `sink.properties.row_delimiter` parameter to `\\x02` to specify a row separator and set the `sink.properties.column_separator` parameter to `\\x01` to specify a column separator.
 
