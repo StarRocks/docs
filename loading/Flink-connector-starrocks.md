@@ -158,6 +158,7 @@ fromElements(
 ```
 
     - Load data as tables.
+    
 
 ```Plain%20Text
 // create a table with `structure` and `properties`
