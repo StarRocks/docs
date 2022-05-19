@@ -44,7 +44,7 @@ CREATE FILE "file_name" [IN database]
 | database      | No           | The database to which the file belongs. If you do not specify this parameter, this parameter defaults to the name of the database that you access in the current session. |
 | properties    | Yes          | The properties of the file. The following table describes the child parameters of properties. |
 
-Child parameters of `properties`:
+Child parameters of `properties`
 
 | **Child parameter** | **Required** | **Description**                                              |
 | ------------------- | ------------ | ------------------------------------------------------------ |
@@ -137,7 +137,7 @@ DROP FILE "file_name" [FROM database]
 | database      | No           | The database to which a file belongs.                        |
 | properties    | Yes          | The properties of the file. The following table describes the child parameter of properties. |
 
-Child parameters of `properties`:
+Child parameters of `properties`
 
 | **Child parameter** | **Required** | **Description**                       |
 | ------------------- | ------------ | ------------------------------------- |
