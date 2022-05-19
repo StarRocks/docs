@@ -31,9 +31,9 @@ To load data from Apache Flink® into StarRocks by using flink-connector-starroc
 </dependency>
 ```
 
-1. Use one of the following methods to load data  
+3. Use one of the following methods to load data  
 
-- Load data as raw JSON string streams.
+    - Load data as raw JSON string streams.
 
 ```Plain%20Text
 // -------- sink with raw json string stream --------
@@ -157,7 +157,7 @@ fromElements(
 );
 ```
 
-- Load data as tables.
+    - Load data as tables.
 
 ```Plain%20Text
 // create a table with `structure` and `properties`
