@@ -42,6 +42,7 @@
   + [Window Function](/using_starrocks/Window_function.md)
   + [Cost Based Optimizer](/using_starrocks/Cost_based_optimizer.md)
   + [Lateral Join](/using_starrocks/Lateral_join.md)
+  + [File manager](/using_starrocks/File_manager.md)
 + Administration
   + [Build in docker](/administration/Build_in_docker.md)
 + FAQs
