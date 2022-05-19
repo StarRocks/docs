@@ -13,23 +13,23 @@ To load data from Apache Flink® into StarRocks by using flink-connector-starroc
 1. Download the [source code](https://github.com/StarRocks/flink-connector-starrocks) of flink-connector-starrocks.
 2. Find a file named **pom.xml**. Add the following code snippet to **pom.xml** and replace `x.x.x` in the code snippet with the latest version number of flink-connector-starrocks.
 
-```Plain%20Text
-<dependency>
+    ```Plain%20Text
+    <dependency>
 
-    <groupId>com.starrocks</groupId>
+        <groupId>com.starrocks</groupId>
 
-    <artifactId>flink-connector-starrocks</artifactId>
+        <artifactId>flink-connector-starrocks</artifactId>
 
-    <!-- for flink-1.11, flink-1.12 -->
+        <!-- for flink-1.11, flink-1.12 -->
 
-    <version>x.x.x_flink-1.11</version>
+        <version>x.x.x_flink-1.11</version>
 
-    <!-- for flink-1.13 -->
+        <!-- for flink-1.13 -->
 
-    <version>x.x.x_flink-1.13</version>
+        <version>x.x.x_flink-1.13</version>
 
-</dependency>
-```
+    </dependency>
+    ```
 
 3. Use one of the following methods to load data  
 
