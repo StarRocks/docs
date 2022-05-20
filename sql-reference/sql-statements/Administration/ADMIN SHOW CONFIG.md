@@ -4,7 +4,7 @@
 
 Displays the configuration of the current cluster (currently only FE configuration items are supported).
 
-## Syntax:
+## Syntax
 
 ```sql
 ADMIN SHOW FRONTEND CONFIG [LIKE "pattern"];
