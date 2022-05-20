@@ -1,4 +1,4 @@
-# Deployment FAQs
+# Deployment
 
 This topic provides answers to some frequently asked questions about deployment.
 
@@ -106,7 +106,7 @@ Patches to this bug is still under active development. Currently, you can troubl
 
 ## This error "Fe type:unknown ,is ready :false." occurs when I start an FE during the cluster restart
 
-Check if the master FE is running. If not, restart the FE nodes in your cluster one by one.
+Check if the leader FE is running. If not, restart the FE nodes in your cluster one by one.
 
 ## This error "failed to get service info err." occurs when I install the cluster
 
