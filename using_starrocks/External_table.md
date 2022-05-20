@@ -408,7 +408,7 @@ insert into external_t select * from other_table;
 Parameters：
 
 * **EXTERNAL:** This keyword indicates that the table to be created is an external table.
-* **host:** This parameter specifies the IP address of the leader FE node of the destination StarRocks cluster. 
+* **host:** This parameter specifies the IP address of the leader FE node of the destination StarRocks cluster.
 * **port:**  This parameter specifies the RPC port of the leader FE node of the destination StarRocks cluster. You can set this parameter based on the rpc_port configuration in the **fe/fe.conf** file.
 * **user:** This parameter specifies the username used to access the destination StarRocks cluster.
 * **password:** This parameter specifies the password used to access the destination StarRocks cluster.
@@ -419,7 +419,7 @@ The following limits apply when you use a StarRocks external table:
 
 * You can only run the INSERT INTO and SHOW CREATE TABLE commands on a StarRocks external table. Other data writing methods are not supported. In addition, you cannot query data from a StarRocks external table or perform DDL operations on the external table.
 * The syntax of creating an external table is the same as creating a normal table, but the column names and other information in the external table must be the same as the destination table.
-* The external table synchronizes table metadata from the destination table every 10 seconds. If a DDL operation is performed on the destination table, there may be a delay for data synchronization between the two tables. 
+* The external table synchronizes table metadata from the destination table every 10 seconds. If a DDL operation is performed on the destination table, there may be a delay for data synchronization between the two tables.
 
 ## Apache Iceberg external table
 
