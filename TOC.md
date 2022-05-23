@@ -43,6 +43,7 @@
   + [Window Function](/using_starrocks/Window_function.md)
   + [Cost Based Optimizer](/using_starrocks/Cost_based_optimizer.md)
   + [Lateral Join](/using_starrocks/Lateral_join.md)
+  + [File manager](/using_starrocks/File_manager.md)
 + Reference
   + SQL Reference
     + User Account Management
