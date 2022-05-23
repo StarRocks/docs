@@ -302,7 +302,7 @@
   + [System Limit](/reference/System_limit.md)
 + Administration
   + [Build in Docker](/administration/Build_in_docker.md)
-  + [Cluster Administration](/administration/Cluster_administration.md)
+  + [Manage a cluster](/administration/Cluster_administration.md)
   + [Configuration](/administration/Configuration.md)
   + [Scale In and Out](/administration/Scale_up_down.md)
   + [Backup and Restore](/administration/Backup_and_restore.md)
