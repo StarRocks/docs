@@ -56,39 +56,39 @@ Child parameters of `properties`
 
 - Create a file named **ca.pem** under the category named **kafka**.
 
-  ```SQL
-  CREATE FILE "ca.pem"
+ ```SQL
+ CREATE FILE "ca.pem"
 
-  PROPERTIES
+ PROPERTIES
 
-  (
+ (
 
-      "url" = "http://test.bj.bcebos.com/kafka-key/ca.pem",
+     "url" = "http://test.bj.bcebos.com/kafka-key/ca.pem",
 
-      "catalog" = "kafka"
+     "catalog" = "kafka"
 
-  );
-  ```
+ );
+ ```
 
 - Create a file named **client.key** under the category named **my_catelog**.
 
-  ```SQL
-  CREATE FILE "client.key"
+ ```SQL
+ CREATE FILE "client.key"
 
-  IN my_database
+ IN my_database
 
-  PROPERTIES
+ PROPERTIES
 
-  (
+ (
 
-      "url" = "http://test.bj.bcebos.com/kafka-key/client.key",
+     "url" = "http://test.bj.bcebos.com/kafka-key/client.key",
 
-      "catalog" = "my_catalog",
+     "catalog" = "my_catalog",
 
-      "md5" = "b5bb901bf10f99205b39a46ac3557dd9"
+     "md5" = "b5bb901bf10f99205b39a46ac3557dd9"
 
-  );
-  ```
+ );
+ ```
 
 ### View a file
 
