@@ -159,4 +159,4 @@ A nested function like this is not currently supported: DELETE from test_new WHE
 
 ## What should be done when there are too many log files in be/fe?
 
-You can modify the log level and the parameter size. For more detail, please refer to Parameter configuration( [参数配置](/administration/Configuration.md)) for explanations on default parameter value and effect related to log.
+You can modify the log level and the parameter size. For more detail, please refer to Parameter configuration( [参数配置](../administration/Configuration.md)) for explanations on default parameter value and effect related to log.
