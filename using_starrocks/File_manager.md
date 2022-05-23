@@ -56,39 +56,39 @@ Child parameters of `properties`
 
 - Create a file named **ca.pem** under the category named **kafka**.
 
- ```SQL
- CREATE FILE "ca.pem"
+```SQL
+CREATE FILE "ca.pem"
 
- PROPERTIES
+PROPERTIES
 
- (
+(
 
-     "url" = "http://test.bj.bcebos.com/kafka-key/ca.pem",
+    "url" = "http://test.bj.bcebos.com/kafka-key/ca.pem",
 
-     "catalog" = "kafka"
+    "catalog" = "kafka"
 
- );
- ```
+);
+```
 
 - Create a file named **client.key** under the category named **my_catelog**.
 
- ```SQL
- CREATE FILE "client.key"
+```SQL
+CREATE FILE "client.key"
 
- IN my_database
+IN my_database
 
- PROPERTIES
+PROPERTIES
 
- (
+(
 
-     "url" = "http://test.bj.bcebos.com/kafka-key/client.key",
+    "url" = "http://test.bj.bcebos.com/kafka-key/client.key",
 
-     "catalog" = "my_catalog",
+    "catalog" = "my_catalog",
 
-     "md5" = "b5bb901bf10f99205b39a46ac3557dd9"
+    "md5" = "b5bb901bf10f99205b39a46ac3557dd9"
 
- );
- ```
+);
+```
 
 ### View a file
 
@@ -160,4 +160,3 @@ DROP FILE "ca.pem" properties("catalog" = "kafka");
 - How a BE and an FE use files
   - When an FE uses a file, the SmallFileMgr class stores the data related to the file in the specified directory of the FE. Then the SmallFileMgr class returns a local file path for the FE to use the file.
   - When a BE uses a file, the BE calls the **/api/get_small_file** API (HTTP) to download the file to its specified directory and record the information of the file. When the BE requests to use the file, the BE checks whether the file has been downloaded and then verifies the file. If the file pass the verification, the path of the file is returned. If the file fails the verification, the file is deleted and re-downloaded from the FE. When a BE restarts, it preloads the downloaded file into its memory.
-  
