@@ -27,7 +27,7 @@
   + [Insert Into](/loading/InsertInto.md)
   + [ETL in Loading](/loading/Etl_in_loading.md)
   + [Json Loading](/loading/Json_loading.md)
-  + [Flink Connector](/loading/Flink-connector-starrocks.md)
+  + [Load data by using flink-connector-starrocks](/loading/Flink-connector-starrocks.md)
   + [DataX Writer](/loading/DataX-starrocks-writer.md)
 + Data Export
   + [Export](/unloading/Export.md)
