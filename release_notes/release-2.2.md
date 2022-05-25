@@ -49,4 +49,4 @@ Release date: May 22, 2022
 
 ### Others
 
-Version 1.14 of the Apache Flink® connector named flink-connector-starrocks is supported.
+Flink-connector-starrocks supports Apache Flink® v1.14.
