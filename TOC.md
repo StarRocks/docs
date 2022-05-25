@@ -59,6 +59,7 @@
       + [DataX](/faq/loading/DataX_faq.md)
     + [Data Export](/faq/Exporting_faq.md)
     + [SQL](/faq/Sql_faq.md)
+    + [Other FAQs](/faq/Others.md)
 + Release Notes
   + [v1.19](/release_notes/release-1.19.md)
   + [v2.0](/release_notes/release-2.0.md)
