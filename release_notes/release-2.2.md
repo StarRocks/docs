@@ -18,10 +18,8 @@ Release date: May 22, 2022
 
 - The following functions are added:
   - ARRAY functions: [array_agg](https://docs.starrocks.com/en-us/main/sql-reference/sql-functions/array-functions/array_agg), array_sort, array_distinct, array_join, reverse, array_slice, array_concat, array_difference, arrays_overlap, and array_intersect
-
-- BITMAP functions: bitmap_max and bitmap_min
-
-- Other functions: retention and square
+  - BITMAP functions: bitmap_max and bitmap_min
+  - Other functions: retention and square
 
 ### Improvements
 
