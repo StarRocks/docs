@@ -1,4 +1,4 @@
-# Loading FAQ
+# Loading
 
 ## Common issues in loading
 

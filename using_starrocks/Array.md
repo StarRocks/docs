@@ -6,7 +6,7 @@ Arrays, as an extended type of database, are supported in PG, ClickHouse, Snowfl
 
 ## Array usage
 
-### Array Definition
+### Array definition
 
 The following is an example of defining an array column in StarRocks:
 
@@ -43,7 +43,7 @@ The array type has the following restrictions:
 * Array columns cannot be used as distribution columns
 * Array columns cannot be used as partition columns
 
-### Constructing arrays in SQL
+### Construct arrays in SQL
 
 Arrays can be constructed in SQL using brackets ("[" and "]"), with each array element separated by a comma (",")
 
@@ -57,14 +57,14 @@ When array elements have different types, StarRocks will automatically derive th
 
 ~~~SQL
 select [1, 1.2] as floats;
-select [12, "100"]; -- The results are ["12", "100"]
+select [12, "100"]; -- The result is ["12", "100"].
 ~~~
 
 You can use pointed brackets (`<>`) to show the declared array type.
 
 ~~~SQL
 select `ARRAY<float>`[1, 2];
-select `ARRAY<INT>`["12", "100"]; -- 结果是 [12, 100]
+select `ARRAY<INT>`["12", "100"]; -- The result is [12, 100].
 ~~~
 
 NULL can be included in the element

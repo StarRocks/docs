@@ -32,16 +32,18 @@
 + Data Export
   + [Export](/unloading/Export.md)
   + [Spark Connector](/unloading/Spark_connector.md)
+  + [Flink Connector](/unloading/Flink_connector.md)
 + Using StarRocks
   + [Precise De-duplication with Bitmap](/using_starrocks/Using_bitmap.md)
   + [Approximate De-duplication with HLL](/using_starrocks/Using_HLL.md)
   + [Materialized View](/using_starrocks/Materialized_view.md)
-  + [Colocation Join](/using_starrocks/Colocation_join.md)
+  + [Colocate Join](/using_starrocks/Colocation_join.md)
   + [External Table](/using_starrocks/External_table.md)
   + [Array](/using_starrocks/Array.md)
   + [Window Function](/using_starrocks/Window_function.md)
   + [Cost Based Optimizer](/using_starrocks/Cost_based_optimizer.md)
   + [Lateral Join](/using_starrocks/Lateral_join.md)
+  + [File manager](/using_starrocks/File_manager.md)
 + Reference
   + SQL Reference
     + User Account Management
@@ -97,6 +99,7 @@
       + [CREATE MATERIALIZED VIEW](/sql-reference/sql-statements/data-definition/CREATE%20MATERIALIZED%20VIEW.md)
       + [CREATE REPOSITORY](/sql-reference/sql-statements/data-definition/CREATE%20REPOSITORY.md)
       + [CREATE RESOURCE](/sql-reference/sql-statements/data-definition/CREATE%20RESOURCE.md)
+      + [CREATE TABLE AS SELECT](/sql-reference/sql-statements/data-definition/CREATE%20TABLE%20AS%20SELECT.md)
       + [CREATE TABLE LIKE](/sql-reference/sql-statements/data-definition/CREATE%20TABLE%20LIKE.md)
       + [CREATE TABLE](/sql-reference/sql-statements/data-definition/CREATE%20TABLE.md)
       + [CREATE VIEW](/sql-reference/sql-statements/data-definition/CREATE%20VIEW.md)
@@ -149,7 +152,7 @@
       + [STOP ROUTINE LOAD](/sql-reference/sql-statements/data-manipulation/STOP%20ROUTINE%20LOAD.md)
       + [STREAM LOAD](/sql-reference/sql-statements/data-manipulation/STREAM%20LOAD.md)
     + Data Type
-      + Numeric Data Type
+      + Numeric
         + [BIGINT](/sql-reference/sql-statements/data-types/BIGINT.md)
         + [LARGEINT](/sql-reference/sql-statements/data-types/LARGEINT.md)
         + [SMALLINT](/sql-reference/sql-statements/data-types/SMALLINT.md)
@@ -159,14 +162,14 @@
         + [DOUBLE](/sql-reference/sql-statements/data-types/DOUBLE.md)
         + [FLOAT](/sql-reference/sql-statements/data-types/FLOAT.md)
         + [INT](/sql-reference/sql-statements/data-types/INT.md)
-      + String Data Type
+      + String
         + [CHAR](/sql-reference/sql-statements/data-types/CHAR.md)
         + [VARCHAR](/sql-reference/sql-statements/data-types/VARCHAR.md)
         + [STRING](/sql-reference/sql-statements/data-types/STRING.md)
-      + Date Data Type
+      + Date
         + [DATE](/sql-reference/sql-statements/data-types/DATE.md)
         + [DATETIME](/sql-reference/sql-statements/data-types/DATETIME.md)
-      + Other Data Tpye
+      + Others
         + [HLL](/sql-reference/sql-statements/data-types/HLL.md)
         + [BITMAP](/sql-reference/sql-statements/data-types/BITMAP.md)
     + Auxiliary Commands
@@ -262,7 +265,9 @@
       + [stddev_samp](/sql-reference/sql-functions/aggregate-functions/stddev_samp.md)
       + [sum](/sql-reference/sql-functions/aggregate-functions/sum.md)
       + [variance](/sql-reference/sql-functions/aggregate-functions/variance.md)
+      + [square](/sql-reference/sql-functions/aggregate-functions/square.md)
       + [var_samp](/sql-reference/sql-functions/aggregate-functions/var_samp.md)
+      + [any_value](/sql-reference/sql-functions/aggregate-functions/any_value.md)
     + Bitmap Functions
       + [bitmap_and](/sql-reference/sql-functions/bitmap-functions/bitmap_and.md)
       + [bitmap_andnot](/sql-reference/sql-functions/bitmap-functions/bitmap_andnot.md)
@@ -279,6 +284,7 @@
       + [bitmap_xor](/sql-reference/sql-functions/bitmap-functions/bitmap_xor.md)
       + [to_bitmap](/sql-reference/sql-functions/bitmap-functions/to_bitmap.md)
     + Array Functions
+      + [array_agg](/sql-reference/sql-functions/array-functions/array_agg.md)
       + [array_append](/sql-reference/sql-functions/array-functions/array_append.md)
       + [array_avg](/sql-reference/sql-functions/array-functions/array_avg.md)
       + [array_contains](/sql-reference/sql-functions/array-functions/array_contains.md)
@@ -287,16 +293,20 @@
       + [array_min](/sql-reference/sql-functions/array-functions/array_min.md)
       + [array_position](/sql-reference/sql-functions/array-functions/array_position.md)
       + [array_sum](/sql-reference/sql-functions/array-functions/array_sum.md)
+      + [array_remove](/sql-reference/sql-functions/array-functions/array_remove.md)
     + [cast function](/sql-reference/sql-functions/cast.md)
     + [hash function](/sql-reference/sql-functions/hash-functions/murmur_hash3_32.md)
-  + [System Variable](/reference/System_variable.md)
+    + Crytographic Functions
+      + [md5](/sql-reference/sql-functions/crytographic-functions/md5.md)
+      + [sha2](/sql-reference/sql-functions/crytographic-functions/sha2.md)
+  + [System Variables](/reference/System_variable.md)
   + [Error Code](/reference/Error_code.md)
   + [System Limit](/reference/System_limit.md)
 + Administration
   + [Build in Docker](/administration/Build_in_docker.md)
-  + [Cluster Administration](/administration/Cluster_administration.md)
+  + [Manage a cluster](/administration/Cluster_administration.md)
   + [Configuration](/administration/Configuration.md)
-  + [Scale Up and Down](/administration/Scale_up_down.md)
+  + [Scale In and Out](/administration/Scale_up_down.md)
   + [Backup and Restore](/administration/Backup_and_restore.md)
   + Data Recovery
     + [Data Recovery](/administration/Data_recovery.md)
@@ -312,20 +322,20 @@
     + [Blacklist](/administration/Blacklist.md)
     + [Memory Management](/administration/Memory_management.md)
     + [Load Balance](/administration/Load_balance.md)
-+ FAQs
++ FAQ
   + [Deploy](/faq/Deploy_faq.md)
   + Data Migration
     + Data Ingestion
-      + [Data Ingestion FAQ](/faq/loading/Loading_faq.md)
+      + [Data Ingestion](/faq/loading/Loading_faq.md)
       + [Stream Load](/faq/loading/Stream_load_faq.md)
       + [Routine Load](/faq/loading/Routine_load_faq.md)
       + [Broker Load](/faq/loading/Broker_load_faq.md)
-      + [Spark Load](/faq/loading/Spark_load_faq.md)
       + [Insert Into](/faq/loading/Insert_into_faq.md)
       + [Flink connector](/faq/loading/Flink_connector_faq.md)
       + [DataX](/faq/loading/DataX_faq.md)
-      + [Others](/faq/loading/Others.md)
     + [Data Export](/faq/Exporting_faq.md)
+  + [SQL](/faq/Sql_faq.md)
+  + [Others](/faq/Others.md)
 + Benchmark
   + [SSB Benchmark](/benchmarking/SSB_Benchmarking.md)
   + [TPC-H Benchmark](/benchmarking/TPC-H_Benchmarking.md)
