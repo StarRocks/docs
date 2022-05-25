@@ -4,7 +4,7 @@
 
 Create a new table in StarRocks.
 
-Syntax:
+## Syntax
 
 ```Plain%20Text
 CREATE [EXTERNAL] TABLE [IF NOT EXISTS] [database.]table_name
@@ -30,7 +30,9 @@ CREATE [EXTERNAL] TABLE [IF NOT EXISTS] [database.]table_name
 [BROKER PROPERTIES ("key"="value", ...)]
 ```
 
-1. column_definition
+## Parameters
+
+### column_definition
 
 Syntax:
 
@@ -179,7 +181,7 @@ Note:
 When the column of aggregation type BITMAP_UNION is imported, its original data types must be TINYINT, SMALLINT, 
 ```
 
-1. index_definition
+### index_definition
 
 Syntax:
 
@@ -196,12 +198,9 @@ col_name: Column name
 > Note:
 > Currently only BITMAP index is supported and it only applies to single columns.
 
-1. ENGINE type
+### ENGINE type
 
-- Default: olap.
-- Optional: mysql, elasticsearch, and hive.
-
-## Examples
+Default: olap. Optional: mysql, elasticsearch, and hive.
 
 1. For MySQL, properties should include:
 
@@ -269,9 +268,7 @@ PROPERTIES (
 
 Here, database is the name of the corresponding database in Hive table. Table is the name of Hive table. hive.metastore.uris and Hive metastore are server addresses.
 
-### Syntax
-
-1. key_desc
+### key_desc
 
 Syntax：
 
@@ -301,11 +298,11 @@ Please note:
 Value columns do not need to specify aggregation types when other key_type is used to create tables with the exception of AGGREGATE KEY. 
 ```
 
-1. partition_desc
+### partition_desc
 
 Partition description can be used in the following three ways:
 
-**LESS THAN**
+#### LESS THAN
 
 Syntax:
 
@@ -343,7 +340,7 @@ Please note:
 
 - When data backtracking is needed, you may want to consider emptying the first partition for adding partitions later when necessary.
 
-**Fixed Range**
+#### Fixed Range
 
 Syntax:
 
@@ -366,7 +363,7 @@ Note:
 - Fixed Range is more flexible than LESS THAN. You can customize the left and right partitions.
 - Fixed Range is the same as LESS THAN in the other aspects.
 
-**Create partitions in bulk**
+#### Create partitions in bulk
 
 Syntax
 
@@ -385,9 +382,9 @@ You can specify the value for `START` and `END` and the expression in `EVERY` to
 - If `datekey` supports DATE and INTEGER data type, the data type of `START`, `END`, and `EVERY` must be the same as the data type of `datekey`.
 - If `datekey` only supports DATE data type, you need to use the `INTERVAL` keyword to specify the date interval. You can specify the date interval by day, week, month, or year. The naming conventions of partitions are the same as those for dynamic partitions.
 
-For more information, see [Data Distribution](../table_design/Data_distribution.md).
+For more information, see [Data Distribution](http://../table_design/Data_distribution#create-and-modify-partitions-in-bulk).
 
-1. distribution_des
+### distribution_des
 
 Hash bucketing
 
@@ -403,9 +400,9 @@ Please use specified key columns for Hash bucketing. The default bucket number i
 
 It is recommended to use Hash bucketing method.
 
-1. PROPERTIES
+### PROPERTIES
 
-\1) If ENGINE type is olap. Users can specify storage medium, cooldown time and replica number.
+- If ENGINE type is olap. Users can specify storage medium, cooldown time and replica number.
 
 ```Plain%20Text
 PROPERTIES (
@@ -429,7 +426,7 @@ replication_num: number of replicas in the specified partition. Default number: 
 
 When the table has only one partition, the properties belongs to the table. When the table has two levels of partitions, the properties belong to each partition. Users can also specify different properties for different partitions through ADD ADDITION and MODIFY PARTITION statements.
 
-\2) If Engine type is olap, users can specify a column to adopt bloom filter index which applies only to the condition where in and equal are query filters. More discrete values in this column will result in more precise queries. Bloom filter currently supports the key column, with the exception of the key column in TINYINT FLOAT DOUBLE type, and the value column with the aggregation method REPLACE.
+- If Engine type is olap, users can specify a column to adopt bloom filter index which applies only to the condition where in and equal are query filters. More discrete values in this column will result in more precise queries. Bloom filter currently supports the key column, with the exception of the key column in TINYINT FLOAT DOUBLE type, and the value column with the aggregation method REPLACE.
 
 ```SQL
 PROPERTIES (
@@ -439,7 +436,7 @@ PROPERTIES (
 )
 ```
 
-\3) If you want to use Colocate Join attributes, please specify it in properties.
+- If you want to use Colocate Join attributes, please specify it in properties.
 
 ```SQL
 PROPERTIES (
@@ -449,7 +446,7 @@ PROPERTIES (
 )
 ```
 
-\4) If you want to use dynamic partition attributes, please specify it in properties.
+- If you want to use dynamic partition attributes, please specify it in properties.
 
 ```SQL
 PROPERTIES (
@@ -479,7 +476,7 @@ dynamic_partition.prefix: It is used to specify the prefix of the created partit
 
 dynamic_partition.buckets: It is used to specify the number of buckets automatically created in partitions.
 
-\5) When building tables, Rollup can be created in bulk.
+- When building tables, Rollup can be created in bulk.
 
 Syntax:
 
@@ -491,7 +488,7 @@ ROLLUP (rollup_name (column_name1, column_name2, ...)
 [PROPERTIES ("key"="value", ...)],...)
 ```
 
-\6) If you want to use inmemory table attributes, please specify it in properties.
+- If you want to use inmemory table attributes, please specify it in properties.
 
 ```SQL
 PROPERTIES (
@@ -505,7 +502,7 @@ When the attribute is true, StarRocks will try to cache the data and index in th
 
 ## Examples
 
-1. Create an olap table that uses Hash bucketing and column-based storage, and that is aggregated by identical key records.
+- Create an olap table that uses Hash bucketing and column-based storage, and that is aggregated by identical key records.
 
 ```SQL
 CREATE TABLE example_db.table_hash
@@ -533,7 +530,7 @@ DISTRIBUTED BY HASH(k1) BUCKETS 32
 PROPERTIES ("storage_type"="column");
 ```
 
-1. Create an olap table that uses Hash bucketing and column-based storage, and that is aggregated by identical key records. Also, please set the storage medium and the cooldown time.
+- Create an olap table that uses Hash bucketing and column-based storage, and that is aggregated by identical key records. Also, please set the storage medium and the cooldown time.
 
 ```SQL
 CREATE TABLE example_db.table_hash
@@ -601,7 +598,7 @@ PROPERTIES(
 );
 ```
 
-1. Create an olap table that uses Range partition, Hash bucketing and the default column-based storage. Records with the same key should exist at the same time. Also, please set the initial storage medium and the cooldown time.
+- Create an olap table that uses Range partition, Hash bucketing and the default column-based storage. Records with the same key should exist at the same time. Also, please set the initial storage medium and the cooldown time.
 
 LESS THAN
 
@@ -703,7 +700,7 @@ PROPERTIES(
 );
 ```
 
-1. Create a mysql table.
+- Create a mysql table.
 
 ```SQL
 CREATE TABLE example_db.table_mysql
@@ -743,7 +740,7 @@ PROPERTIES
 )
 ```
 
-1. Create a mysql table.
+- Create a table that contain HLL columns.
 
 ```SQL
 CREATE TABLE example_db.example_table
@@ -769,7 +766,7 @@ DISTRIBUTED BY HASH(k1) BUCKETS 32
 PROPERTIES ("storage_type"="column");
 ```
 
-1. Create table containing BITMAP_UNION aggregation type. (The original data type of v1 and v2 columns muse be TINYINT, SMALLINT, INT)
+- Create table containing BITMAP_UNION aggregation type. (The original data type of v1 and v2 columns muse be TINYINT, SMALLINT, INT)
 
 ```SQL
 CREATE TABLE example_db.example_table
@@ -795,7 +792,7 @@ DISTRIBUTED BY HASH(k1) BUCKETS 32
 PROPERTIES ("storage_type"="column");
 ```
 
-1. Create table t1 and t2 that support Colocat Join.
+- Create table t1 and t2 that support Colocat Join.
 
 ```SQL
 CREATE TABLE `t1` (
@@ -837,7 +834,7 @@ PROPERTIES (
 );
 ```
 
-1. Create a table with bitmap index
+- Create a table with bitmap index
 
 ```SQL
 CREATE TABLE example_db.table_hash
@@ -867,7 +864,7 @@ DISTRIBUTED BY HASH(k1) BUCKETS 32
 PROPERTIES ("storage_type"="column");
 ```
 
-1. Create a dynamic partition table. (The dynamic partitioning function should be turned on in FE configuration.) This table will create partitions for three days and delete those created three days ago. For example, assuming today is 2020-01-08, partitions with these names will be created: p20200108, p20200109, p20200110, p20200111. And their ranges are:
+- Create a dynamic partition table. (The dynamic partitioning function should be turned on in FE configuration.) This table will create partitions for three days and delete those created three days ago. For example, assuming today is 2020-01-08, partitions with these names will be created: p20200108, p20200109, p20200110, p20200111. And their ranges are:
 
 ```Plain%20Text
 [types: [DATE]; keys: [2020-01-08]; ‥types: [DATE]; keys: [2020-01-09]; )
@@ -928,7 +925,7 @@ PROPERTIES(
 );
 ```
 
-1. Create a table with rollup index.
+- Create a table with rollup index.
 
 ```SQL
 CREATE TABLE example_db.rolup_index_table
@@ -964,7 +961,7 @@ r3(event_day)
 PROPERTIES("replication_num" = "3");
 ```
 
-1. Create an in-memory table.
+- Create an in-memory table.
 
 ```SQL
 CREATE TABLE example_db.table_hash
@@ -994,7 +991,7 @@ DISTRIBUTED BY HASH(k1) BUCKETS 32
 PROPERTIES ("in_memory"="true");
 ```
 
-1. Create an external table in hive.
+- Create an external table in hive.
 
 ```SQL
 CREATE TABLE example_db.table_hive
@@ -1024,6 +1021,6 @@ PROPERTIES
 );
 ```
 
-## keyword
+## Keywords
 
 CREATE, TABLE
