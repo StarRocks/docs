@@ -85,7 +85,7 @@ Execute the SWAP WITH statement to swap the data between two tables or two parti
 
     1. Create a temporary partition.
 
-    ```SQL
+        ```SQL
         ALTER TABLE table1
 
         ADD TEMPORARY PARTITION tp1
