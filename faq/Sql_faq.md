@@ -1,4 +1,4 @@
-# SQL
+# SQL FAQs
 
 This topic provides answers to some frequently asked questions about SQL.
 
