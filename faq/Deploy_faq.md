@@ -1,4 +1,4 @@
-# FAQ: Deployment
+# Deployment
 
 This topic provides answers to some frequently asked questions about deployment.
 
@@ -18,19 +18,21 @@ There are the following two ways to solve this problem:
 - Do not add "32" at the end of an IP address or change "32" to "28".
 - You can also upgrade to StarRocks 2.1 or later.
 
-## This error "StarRocks BE http service did not start correctly, exiting" occurs when I start a backend (BE) after installation
+## The error "StarRocks BE http service did not start correctly, exiting" occurs when I start a backend (BE) after installation
+
+When installing "be", the system reports a startup error: StarRocks Be http service did not start correctly, exiting.
 
 This error occurs because the web services port of the BE is occupied. Try to modify the ports in the `be.conf` file and restart the BE.
 
 ## Can StarRocks run on the operating system of SUSE 12SPS?
 
-Yes
+Yes.
 
-## What do I do when this error occurs: Could not initialize class org.apache.doris.rpc.BackendServiceProxy?
+## What do I do when this error occurs: ERROR 1064 (HY000): Could not initialize class com.starrocks.rpc.BackendServiceProxy?
 
-This error occurs when you run programs in Java Runtime Environment (JRE). To solve this problem,  replace JRE with Java Development Kit (JDK). We recommend that you use Oracle's JDK 1.8 or later.
+This error occurs when you run programs in Java Runtime Environment (JRE). To solve this problem, replace JRE with Java Development Kit (JDK). We recommend that you use Oracle's JDK 1.8 or later.
 
-## This error "Failed to Distribute files to node" occurs when I deploy StarRocks of Enterprise Edition and configure nodes
+## The error "Failed to Distribute files to node" occurs when I deploy StarRocks of Enterprise Edition and configure nodes
 
 This error occurs when Setuptools versions installed on multiple frontends (FEs) are inconsistent. To solve this problem, you can execute the following command as a root user.
 
@@ -104,7 +106,7 @@ Patches to this bug is still under active development. Currently, you can troubl
 
 ## This error "Fe type:unknown ,is ready :false." occurs when I start an FE during the cluster restart
 
-Check if the master FE is running. If not, restart the FE nodes in your cluster one by one.
+Check if the leader FE is running. If not, restart the FE nodes in your cluster one by one.
 
 ## This error "failed to get service info err." occurs when I install the cluster
 
