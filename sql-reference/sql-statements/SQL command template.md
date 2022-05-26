@@ -60,7 +60,7 @@ LIMIT 10
 
 - `tablet_id`: the ID of the tablet. This parameter is required.
 - `backend_id`: the BE ID of the tablet. This parameter is required.
-- `status`: the status of replicas. This parameter is required. Valid values: `bad` and `ok`. The value `ok` indicates that the system automatically repairs the replicas of a tablet. If the replica status is set to `bad`, the replicas may be immediately deleted. Exercise caution when you perform this operation. If the tablet you specified does not exist or the replica status is `bad`, the system ignores these replicas. 
+- `status`: the status of replicas. This parameter is required. Valid values: `bad` and `ok`. The value `ok` indicates that the system automatically repairs the replicas of a tablet. If the replica status is set to `bad`, the replicas may be immediately deleted. Exercise caution when you perform this operation. If the tablet you specified does not exist or the replica status is `bad`, the system ignores these replicas.
 
 > *Description of parameters in a command.*
 
@@ -90,4 +90,4 @@ ADMIN SET REPLICA STATUS PROPERTIES("tablet_id" = "10003", "backend_id" = "10001
 
 - > *You can provide multiple examples.*
 
-- > *If you need to describe more than one scenario in an example, add a comment for each scenario in the code snippet to help* *users quickly distinguish between them.* 
+- > *If you need to describe more than one scenario in an example, add a comment for each scenario in the code snippet to help* *users quickly distinguish between them.*
