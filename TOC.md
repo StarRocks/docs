@@ -42,8 +42,24 @@
   + [Window Function](/using_starrocks/Window_function.md)
   + [Cost Based Optimizer](/using_starrocks/Cost_based_optimizer.md)
   + [Lateral Join](/using_starrocks/Lateral_join.md)
+  + [File manager](/using_starrocks/File_manager.md)
 + Administration
   + [Build in docker](/administration/Build_in_docker.md)
+  + [Manage a cluster](/administration/Cluster_administration.md)
++ FAQs
+  + [Deploy](/faq/Deploy_faq.md)
+  + Data Migration
+    + Data Ingestion
+      + [Data Ingestion FAQ](/faq/loading/Loading_faq.md)
+      + [Stream Load](/faq/loading/Stream_load_faq.md)
+      + [Routine Load](/faq/loading/Routine_load_faq.md)
+      + [Broker Load](/faq/loading/Broker_load_faq.md)
+      + [Insert Into](/faq/loading/Insert_into_faq.md)
+      + [Flink connector](/faq/loading/Flink_connector_faq.md)
+      + [DataX](/faq/loading/DataX_faq.md)
+    + [Data Export](/faq/Exporting_faq.md)
+    + [SQL](/faq/Sql_faq.md)
+    + [Other FAQs](/faq/Others.md)
 + Release Notes
-  + [v1.19](release_notes/release-1.19.md)
-  + [v2.0](release_notes/release-2.0.md)
+  + [v1.19](/release_notes/release-1.19.md)
+  + [v2.0](/release_notes/release-2.0.md)
