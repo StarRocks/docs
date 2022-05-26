@@ -202,71 +202,72 @@ col_name: Column name
 
 Default: olap. Optional: mysql, elasticsearch, and hive.
 
-1. For MySQL, properties should include:
+- For MySQL, properties should include:
 
-```Plain%20Text
-PROPERTIES (
+    ```Plain%20Text
+    PROPERTIES (
 
-    "host" = "mysql_server_host",
+        "host" = "mysql_server_host",
 
-    "port" = "mysql_server_port",
+        "port" = "mysql_server_port",
 
-    "user" = "your_user_name",
+        "user" = "your_user_name",
 
-    "password" = "your_password",
+        "password" = "your_password",
 
-    "database" = "database_name",
+        "database" = "database_name",
 
-    "table" = "table_name"
+        "table" = "table_name"
 
-)
-```
+    )
+    ```
 
-Note:
+    Note:
 
-"table_name" in mysql should indicate the real table name. In contrast, "table_name" in CREATE TABLE statement indicates the name of this mysql table on StarRocks. They can either be different or the same.
+    "table_name" in mysql should indicate the real table name. In contrast, "table_name" in CREATE TABLE statement indicates the name of this mysql table on StarRocks. They can either be different or the same.
 
-The aim of creating mysql tables in StarRocks is to access mysql database. StarRocks itself does not maintain or store any mysql data.
+    The aim of creating mysql tables in StarRocks is to access mysql database. StarRocks itself does not maintain or store any mysql data.
 
-1. For Elasticsearch, specify the following properties:
+- For Elasticsearch, specify the following properties:
 
-```Plain%20Text
-PROPERTIES (
+    ```Plain%20Text
+    PROPERTIES (
 
-    "hosts" = "http://192.168.0.1:8200,http://192.168.0.2:8200",
+        "hosts" = "http://192.168.0.1:8200,http://192.168.0.2:8200",
 
-    "user" = "root",
+        "user" = "root",
 
-    "password" = "root",
+        "password" = "root",
 
-    "index" = "tindex",
+        "index" = "tindex",
 
-    "type" = "doc"
+        "type" = "doc"
 
-)
-```
+        )
+        ```
 
-- `host`: the URL that is used to connect your Elasticsearch cluster. You can specify one or more URLs.
-- `user`: the account of the root user that is used to log in to your Elasticsearch cluster for which basic authentication is enabled.
-- `password`: the password of the preceding root account.
-- `index`: the index of the StarRocks table in your Elasticsearch cluster. The index name is the same as the StarRocks table name. You can set this parameter to the alias of the StarRocks table.
-- `type`: the type of index. The default value is `doc`.
+        - `host`: the URL that is used to connect your Elasticsearch cluster. You can specify one or more URLs.
+        - `user`: the account of the root user that is used to log in to your Elasticsearch cluster for which basic authentication is enabled.
+        - `password`: the password of the preceding root account.
+        - `index`: the index of the StarRocks table in your Elasticsearch cluster. The index name is the same as the StarRocks table name. You can set this parameter to the alias of the StarRocks table.
+        - `type`: the type of index. The default value is `doc`.
+    ```
 
-1. For Hive, properties should include:
+- For Hive, properties should include:
 
-```SQL
-PROPERTIES (
+    ```SQL
+    PROPERTIES (
 
-    "database" = "hive_db_name",
+        "database" = "hive_db_name",
 
-    "table" = "hive_table_name",
+        "table" = "hive_table_name",
 
-    "hive.metastore.uris" = "thrift://127.0.0.1:9083"
+        "hive.metastore.uris" = "thrift://127.0.0.1:9083"
 
-)
-```
+    )
+    ```
 
-Here, database is the name of the corresponding database in Hive table. Table is the name of Hive table. hive.metastore.uris and Hive metastore are server addresses.
+    Here, database is the name of the corresponding database in Hive table. Table is the name of Hive table. hive.metastore.uris and Hive metastore are server addresses.
 
 ### key_desc
 
