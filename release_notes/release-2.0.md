@@ -69,7 +69,8 @@ Release date: March 2, 2022
 
 ### Improvements
 
-- Memory usage is optimized. Users can specify the label_keep_max_num parameter to control the maximum number of loading jobs to retain within a period of time. This prevents full GC caused by high memory usage of FE during frequent data loading.
+Memory usage is optimized. Users can specify the label_keep_max_num parameter to control the maximum number of loading jobs to retain within a period of time. This prevents full GC caused by high memory usage of FE during frequent data loading.
+Memory usage is optimized. Users can specify the label_keep_max_num parameter to control the maximum number of loading jobs to retain within a period of time. This prevents full GC caused by high memory usage of FE during frequent data loading.
 
 ### Bug Fixes
 
