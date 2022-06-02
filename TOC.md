@@ -312,7 +312,7 @@
   + [Backup and Restore](/administration/Backup_and_restore.md)
   + Data Recovery
     + [Data Recovery](/administration/Data_recovery.md)
-    + [Metadata Recovery](/administration/Metadata_recovery.md)
+    + [Restore FEs](/administration/Metadata_recovery.md)
   + [Replica](/administration/Replica.md)
   + [Query Planning](/administration/Query_planning.md)
   + [Profiling](/administration/Profiling.md)
