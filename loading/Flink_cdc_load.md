@@ -238,7 +238,7 @@ The preceding figure shows the workflow of data synchronization:
 
 > Note: If you want to configure more parameters, such as the frequency to load data, see [Load data by using Flink-connector-starrocks](../loading/Flink-connector-starrocks) for more information about `sink`.
 
-- You can configure an individual match rule for a sharded large table. For example, you have two databases, `edu_db_1` and `edu_db_2`, each database contains two tables, `course_1` and `course_2`. In addition, all these tables use the same schema. You can use the following configurations to load the preceding four tables into StarRocks:
+    - You can configure an individual match rule for a sharded large table. For example, you have two databases, `edu_db_1` and `edu_db_2`, each database contains two tables, `course_1` and `course_2`. In addition, all these tables use the same schema. You can use the following configurations to load the preceding four tables into StarRocks:
 
     ```Plain%20Text
     [table-rule.3]
@@ -276,7 +276,7 @@ The preceding figure shows the workflow of data synchronization:
     flink.starrocks.sink.buffer-flush.interval-ms=5000
     ```
 
-After the tables are loaded, StarRocks generates a new table named `course_auto_shared`. You can modify the name of the table in the configuration file that is automatically generated.
+    After the tables are loaded, StarRocks generates a new table named `course_auto_shared`. You can modify the name of the table in the configuration  file that is automatically generated.
 
 - If you want to create tables and synchronize data by using the command line of SQL Client, you need to escape the `\` (backslash).
 
