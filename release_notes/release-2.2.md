@@ -17,7 +17,7 @@ The following bugs are fixed:
 
 - An error occurs when StarRocks parses the escape characters specified in the `SHOW FULL TABLES FROM DatabaseName` statement. [#6559](https://github.com/StarRocks/starrocks/issues/6559)
 - FE disk space usage rises sharply (Fix this bug by rolling back the BDBJE version). [#6708](https://github.com/StarRocks/starrocks/pull/6708)
-- BEs become faulty because relevant fields cannot be found in the data returned after columnar scanning is enabled (`enable_docvalue_scan=true`).  [#6600]<https://github.com/StarRocks/starrocks/pull/6600>
+- BEs become faulty because relevant fields cannot be found in the data returned after columnar scanning is enabled (`enable_docvalue_scan=true`).  [#6600](https://github.com/StarRocks/starrocks/pull/6600)
 
 ## 2.2.0
 
