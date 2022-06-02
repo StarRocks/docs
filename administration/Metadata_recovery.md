@@ -10,11 +10,11 @@ This topic describes how to restore the frontends (FEs) in your StarRocks cluste
 
 - Your StarRocks cluster cannot select a follower FE as the leader FE.
 
-> **Note**:
-
-- > Proceed with caution when you perform the operations that are described in this topic. Improper operations may cause an irreversible loss of data. If the FEs in your StarRocks cluster cannot start, we recommend that you troubleshoot the start failure rather than using this topic to restore the FEs.
-
-- > The method that is provided in this topic cannot help you resolve the preceding issues. The method can only help you restore the service of your StarRocks cluster at the earliest opportunity. We recommend that you contact StarRocks technical support when you restore FEs.
+> **Note**
+>
+> - Proceed with caution when you perform the operations that are described in this topic. Improper operations may cause an irreversible loss of data. If the FEs in your StarRocks cluster cannot start, we recommend that you troubleshoot the start failure rather than using this topic to restore the FEs.
+>
+> - The method that is provided in this topic cannot help you resolve the preceding issues. The method can only help you restore the service of your StarRocks cluster at the earliest opportunity. We recommend that you contact StarRocks technical support when you restore FEs.
 
 ## Procedure
 
@@ -39,7 +39,7 @@ The following figure shows the structure of the meta_dir directory.
 Usually, the leader FE stores the latest metadata. To obtain the latest metadata, you can switch to the installation directory of each FE and run the following command to obtain the lastVLSN value of each FE. The FE that has the largest lastVLSN value stores the latest metadata.
 
 ```Shell
-    java -jar lib/je-7.3.7.jar DbPrintLog -h meta/bdb/ -vd 
+java -jar lib/je-7.3.7.jar DbPrintLog -h meta/bdb/ -vd 
 ```
 
 The current path of lib/je-7.3.7.jar is **starrocks/fe**.
@@ -84,7 +84,7 @@ Perform the following steps to restore an observer FE:
    5. Run the `show frontends` command. You can see two FEs: the preceding observer FE and the new follower FE. The preceding observer FE is the leader FE.
    6. Check whether the new follower FE works properly. If the synchronization of IDs as shown in the following figure is completed, the new follower FE works properly.
 ![8-4](../assets/8-4.png)
-6. If the new follower FE works properly, follow the steps that are provided in the [Restore a follower FE](#FJeZMJ) section to complete the overall restoration process.
+6. If the new follower FE works properly, follow the steps that are provided in the [Restore a follower FE](../administration/Metadata_recovery.md#restore-a-follower-fe) section to complete the overall restoration process.
 
 ### Step 4: Delete other FEs and add them again
 
