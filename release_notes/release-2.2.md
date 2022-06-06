@@ -49,7 +49,6 @@ Release date: May 22, 2022
 
 - When queries from Apache Hive™ are run by using external tables, StarRocks automatically performs incremental updates to the cached metadata by consuming Hive metastore events such as data changes and partition changes. StarRocks also supports queries on data of the DECIMAL and ARRAY types from Apache Hive™. For more information, see [Apache Hive™ external table](../using_starrocks/External_table.md).
 
-
 - The UNION ALL operator is optimized to run 2 to 25 times faster than before.
 
 - A pipeline engine that supports adaptive parallelism and provides optimized profiles is released to improve the performance of simple queries in high concurrency scenarios.
