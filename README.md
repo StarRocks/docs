@@ -31,4 +31,5 @@ Before contributing, please read this article carefully to quickly understand th
 
 ## Documentation template
 
-[Functions](./sql-reference/sql-functions/How%20to%20Write%20Functions%20Documentation.md)
+[Functions](https://github.com/StarRocks/docs/blob/main/sql-reference/sql-functions/How%20to%20Write%20Functions%20Documentation.md)
+[SQL command template](https://github.com/StarRocks/docs/blob/main/sql-reference/sql-statements/SQL%20command%20template.md)
