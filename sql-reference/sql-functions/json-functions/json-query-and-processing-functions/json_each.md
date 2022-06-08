@@ -2,7 +2,7 @@
 
 ## Description
 
-Expands the outermost elements of a JSON object into a set of key-value pairs held in two columns and returns a table that consists of one row for each element.
+Expands the outermost elements of a JSON object into a set of key-value pairs in two columns and returns a table that consists of one row for each element.
 
 ## Syntax
 

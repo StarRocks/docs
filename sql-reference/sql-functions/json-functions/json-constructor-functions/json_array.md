@@ -2,7 +2,7 @@
 
 ## Description
 
-Converts each element of an SQL array to a JSON value and returns a JSON array that consists of the JSON values.
+Converts each element of an SQL array to a JSON value, and returns a JSON array that consists of the JSON values.
 
 ## Syntax
 

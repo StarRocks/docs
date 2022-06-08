@@ -18,7 +18,7 @@ PARSE_JSON(string_expr)
 
 Returns a JSON value.
 
-> Note: If the string cannot be parsed into a standard JSON value, the PARSE_JSON function returns `NULL`. For information about the JSON specification, see [RFC 7159](https://tools.ietf.org/html/rfc7159?spm=a2c63.p38356.0.0.14d26b9fcp7fcf#page-4).
+> Note: If the string cannot be parsed into a standard JSON value, the PARSE_JSON function returns `NULL`. For more information about the JSON specification, see [RFC 7159](https://tools.ietf.org/html/rfc7159?spm=a2c63.p38356.0.0.14d26b9fcp7fcf#page-4).
 
 ## Examples
 

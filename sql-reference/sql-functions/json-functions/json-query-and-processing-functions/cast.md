@@ -38,7 +38,7 @@ When you convert an SQL value to a JSON value, take note of the following points
 
 - If the SQL value exceeds the precision that is supported by JSON, the CAST function returns `NULL` to prevent an arithmetic overflow.
 
-- If the SQL value is `NULL`, the CAST function does not convert the SQL value `NULL` to a JSON value of `NULL`. The return value is still an SQL value of `NULL`.
+- If the SQL value is `NULL`, the CAST function does not convert the SQL value of `NULL` to a JSON value of `NULL`. The return value is still an SQL value of `NULL`.
 
 When you convert a JSON value to an SQL value, take note of the following points:
 
