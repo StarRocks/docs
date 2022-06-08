@@ -38,7 +38,7 @@ mysql> SELECT JSON_EXISTS(PARSE_JSON('{"a": {"b": 1}}'), '$.a.c') ;
        -> 0
 ```
 
-Example 3: Check whether the specified JSON object contains an element that can be located by the `'$.a[2]'` expression. In this example, the JSON object, which is an array named a, contains an element at index 2. Therefore, the JSON_EXISTS function returns `1`. 
+Example 3: Check whether the specified JSON object contains an element that can be located by the `'$.a[2]'` expression. In this example, the JSON object, which is an array named a, contains an element at index 2. Therefore, the JSON_EXISTS function returns `1`.
 
 ```Plain%20Text
 mysql> SELECT JSON_EXISTS(PARSE_JSON('{"a": [1,2,3]}'), '$.a[2]') ;
