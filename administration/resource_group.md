@@ -231,7 +231,6 @@ mysql> SHOW RESOURCE GROUPS ALL;
 ```
 
 > Note:
-
 > In the preceding example, `weight` indicates the degree of matching.
 
 ### Manage resource groups and classifiers
