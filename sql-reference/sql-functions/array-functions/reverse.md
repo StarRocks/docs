@@ -34,13 +34,12 @@ MySQL > SELECT reverse('hello');
 | olleh            |
 
 +------------------+
-
 ```
 
 Example 2: Reverse an array.
 
 ```Plain%20Text
-MYSQL> SELECT REVERSE([4,1,5,8]);
+MYSQL> SELECT reverse([4,1,5,8]);
 
 +--------------------+
 
