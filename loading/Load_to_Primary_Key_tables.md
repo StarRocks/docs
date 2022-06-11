@@ -234,7 +234,7 @@ Load JSON data, which contains a field to specify whether an operation is UPSERT
 
 For example, you want to synchronize the following data from Canal into Apache Kafka®, with the `type` field specified to indicate the operation type, which can be INSERT, UPDATE, or DELETE.
 
-> Note: Data definition language (DDL) operations cannot be synchronized from Canal to Apache Kafka®. 
+> Note: Data definition language (DDL) operations cannot be synchronized from Canal to Apache Kafka®.
 
 ```JSON
 {
