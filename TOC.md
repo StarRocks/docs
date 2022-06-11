@@ -42,6 +42,7 @@
   + [External Table](/using_starrocks/External_table.md)
   + [Array](/using_starrocks/Array.md)
   + [Window Function](/using_starrocks/Window_function.md)
+  + [Java UDFs](/using_starrocks/Java-UDFs.md)
   + [Cost Based Optimizer](/using_starrocks/Cost_based_optimizer.md)
   + [Lateral Join](/using_starrocks/Lateral_join.md)
   + [Configure a time zone](/using_starrocks/timezone.md)
@@ -251,15 +252,15 @@
     + JSON Functions
       + [Overview of JSON functions and operators](/sql-reference/sql-functions/json-functions/overview-of-json-functions-and-operators.md)
       + JSON constructor functions
-        + [JSON_ARRAY](/sql-reference/sql-functions/json-functions/json-constructor-functions/json_array.md)
-        + [JSON_OBJECT](/sql-reference/sql-functions/json-functions/json-constructor-functions/json_object.md)
-        + [PARSE_JSON](/sql-reference/sql-functions/json-functions/json-constructor-functions/parse_json.md)
+        + [json_array](/sql-reference/sql-functions/json-functions/json-constructor-functions/json_array.md)
+        + [json_object](/sql-reference/sql-functions/json-functions/json-constructor-functions/json_object.md)
+        + [parse_json](/sql-reference/sql-functions/json-functions/json-constructor-functions/parse_json.md)
       + JSON query and processing functions
         + [Arrow function](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/arrow-function.md)
-        + [JSON_QUERY](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/json_query.md)
-        + [JSON_EXISTS](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/json_exists.md)
-        + [JSON_EACH](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/json_each.md)
-        + [CAST](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/cast.md)
+        + [json_query](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/json_query.md)
+        + [json_exists](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/json_exists.md)
+        + [json_each](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/json_each.md)
+        + [cast](/sql-reference/sql-functions/json-functions/json-query-and-processing-functions/cast.md)
       + [JSON operators](/sql-reference/sql-functions/json-functions/json-operators.md)
     + Aggregate Functions
       + [approx_count_distinct](/sql-reference/sql-functions/aggregate-functions/approx_count_distinct.md)
