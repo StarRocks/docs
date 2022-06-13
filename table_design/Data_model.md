@@ -19,7 +19,7 @@ If StarRocks can find the same rows in the table, it maps the ingested rows to t
 
 - Unique Key or Primary Key
 
-  The table has a unique primary key. StarRocks replaces the rows whose primary keys are duplicate with the ingested rows. The result is similar to a group of most recent data returned by the REPLACE aggregate function when you call the function on a table that uses the Aggregate Key model. 
+  The table has a unique primary key. StarRocks replaces the rows whose primary keys are duplicate with the ingested rows. The result is similar to a group of most recent data returned by the REPLACE aggregate function when you call the function on a table that uses the Aggregate Key model.
 
 Take note of the following points:
 
@@ -237,7 +237,7 @@ Note that the storage engine creates an index for the primary key of each table.
 
 The table shown in the preceding figure is partitioned on a daily basis, and the primary key-related data in the most recently created partitions is updated more frequently than the data in the other partitions.
 
-The preceding figure shows that the data related to the primary key 
+The preceding figure shows that the data related to the primary key.
 
 - Your database system uses flat tables. Each flat table consists hundreds to thousands of columns. Primary key-related data comprises only a small portion of the table data and consumes only a small amount of memory. For example, a user status or profile table consists of a large number of columns but only tens to hundreds of millions of users. In this situation, the amount of memory consumed by the data in primary key columns can be limited.
 
@@ -349,7 +349,7 @@ Take note of the following points:
 - The partition column and bucket column must be primary key columns.
 - Unlike the Unique Key model, the Primary Key model allows you to create indexes, such as bitmap indexes, on non-primary key columns. Note that you must create indexes at table creation.
 - The Primary Key model does not support rollup indexes and materialized views because the values held in columns may change.
-- You cannot change the data type of a column by using the ALTER TABLE statement. For information about the syntax and examples of the ALTER TABLE statement, see [ALTER TABLE](https://docs.starrocks.com/zh-cn/2.2/sql-reference/sql-statements/data-definition/ALTER TABLE).
+- You cannot change the data type of a column by using the ALTER TABLE statement. For information about the syntax and examples of the ALTER TABLE statement, see [ALTER TABLE](/sql-reference/sql-statements/data-definition/ALTER%20TABLE.md).
 - When you design a table, specify as few columns as you can and reduce the table size to save memory resources. We recommend that you use data types, such as INT and BIGINT, that consume less memory than the other data types. We recommend that you do not choose the VARCHAR data type. Before you create a table, we recommend that you check the table design and estimate the memory consumption for the table based on the number of columns and the data types of primary key columns. This way, you can prevent your StarRocks cluster from running out of memory.
 
   For example, a table consists of 10 million rows and is stored with three replicas, and the primary key of the table is created on the following two columns: `dt date (4byte), id bigint(8byte) = 12byte`. In this case, the estimated amount of memory that is consumed by the table is calculated as follows:
