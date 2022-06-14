@@ -60,8 +60,6 @@
       + [SET PASSWORD](/sql-reference/sql-statements/account-management/SET%20PASSWORD.md)
       + [SET PROPERTY](/sql-reference/sql-statements/account-management/SET%20PROPERTY.md)
       + [SHOW GRANTS](/sql-reference/sql-statements/account-management/SHOW%20GRANTS.md)
-      + [SHOW ROLES](/sql-reference/sql-statements/account-management/SHOW%20ROLES.md)
-      + [Java UDFs](/using_starrocks/Java-UDFs.md)
     + Cluster Management
       + [ADMIN CANCEL REPAIR](/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.md)
       + [ADMIN CHECK TABLET](/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.md)
