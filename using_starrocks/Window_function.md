@@ -294,7 +294,6 @@ As the above example shown, when `num_buckets` is `2`:
 
 <br/>
 
-
 ### FIRST_VALUE()
 
 FIRST_VALUE() returns the **first** value of the window range.
