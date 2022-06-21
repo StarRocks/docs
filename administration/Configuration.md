@@ -179,7 +179,7 @@ After the service is started, you may adjust the configuration parameters to mee
 |cumulative_compaction_write_mbytes_per_sec|100| Speed limit of CumulativeCompaction to write disk |
 |min_compaction_failure_interval_sec|600| Interval for Tablet Compaction to be scheduled again after a failure |
 |max_compaction_concurrency|4| Maximum concurrency for BaseCompaction and CumulativeCompaction. -1 indicates no limit |
-|compaction_trace_threshold|60|Time threshold for each compaction to print the trace. Unit: second |
+|compaction_trace_threshold|60|Time threshold for each compaction to print the trace. System will print trace log once a compaction exceeds this threshold. Unit: second |
 |webserver_port|8040| Http Server port |
 |webserver_num_workers|5| Number of Http Server threads |
 |periodic_counter_update_period_ms|500| Interval for getting counter statistics |
