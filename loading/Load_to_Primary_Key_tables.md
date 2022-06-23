@@ -149,7 +149,6 @@ If you perform both UPSERT and DELETE operations on a file, you must use the `__
 ```
 
 > Note:
-
 > DELETE operations are performed only on the column that is defined as the primary key of the table. However, you still need to provide all columns of the table. This is the same for UPSERT operations.
 
 - Run a stream load job.
@@ -242,7 +241,7 @@ Load JSON data, which contains a field to specify whether an operation is UPSERT
 
 For example, you want to synchronize the following data from Canal into Apache Kafka®, with the `type` field specified to indicate the operation type, which can be INSERT, UPDATE, or DELETE.
 
-> Note: Data definition language (DDL) operations cannot be synchronized from Canal to Apache Kafka®. 
+> Note: Data definition language (DDL) operations cannot be synchronized from Canal to Apache Kafka®.
 
 ```JSON
 {
