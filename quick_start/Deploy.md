@@ -313,8 +313,6 @@ You can drop the wrong BE node and re-add it to the cluster with correct IP addr
 ALTER SYSTEM DROP BACKEND "172.16.xxx.xx:9050";
 ```
 
-如果在**初次部署时**遇到任何意外问题，可以在删除并重新创建 BE 的数据路径后，重新开始部署。
-
 During the **first deployment** of the cluster, you can re-deploy the BE node after deleting and re-creating its storage directory.
 
 #### Stop BE node
@@ -339,11 +337,12 @@ This section describes how to deploy Broker. With broker, StarRocks can read dat
 tar -xzvf StarRocks-x.x.x.tar.gz
 ```
 
-> 注意：将以上文件名修改为下载的二进制安装包名。
+> Caution
+> Replace the file name in the command as the real file name you downloaded.
 
-#### 配置 Broker 节点
+#### Configure Broker
 
-进入 **StarRocks-x.x.x/apache_hdfs_broker** 路径。
+Enter **StarRocks-x.x.x/apache_hdfs_broker**.
 
 ```bash
 cd StarRocks-x.x.x/apache_hdfs_broker
