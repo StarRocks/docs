@@ -138,13 +138,13 @@ mysql -h 127.0.0.1 -P9030 -uroot
 Check the status of FE node.
 
 ```sql
-SHOW PROC '/frontends'\G;
+SHOW PROC '/frontends'\G
 ```
 
 Example:
 
 ```Plain Text
-MySQL [(none)]> SHOW PROC '/frontends'\G;
+MySQL [(none)]> SHOW PROC '/frontends'\G
 
 *************************** 1. row ***************************
              Name: 172.26.xxx.xx_9010_1652926508967
@@ -261,13 +261,13 @@ bin/start_be.sh --daemon
 You can verify if the BE node is started properly via MySQL client.
 
 ```sql
-SHOW PROC '/backends'\G;
+SHOW PROC '/backends'\G
 ```
 
 Example:
 
 ```Plain Text
-MySQL [(none)]> SHOW PROC '/backends'\G;
+MySQL [(none)]> SHOW PROC '/backends'\G
 
 *************************** 1. row ***************************
             BackendId: 10003
@@ -377,13 +377,13 @@ ALTER SYSTEM ADD BROKER broker1 "172.16.xxx.xx:8000";
 You can verify if the BE node is started properly via MySQL client.
 
 ```sql
-SHOW PROC "/brokers"\G;
+SHOW PROC "/brokers"\G
 ```
 
 Example:
 
 ```plain text
-MySQL [(none)]> SHOW PROC "/brokers"\G;
+MySQL [(none)]> SHOW PROC "/brokers"\G
 
 *************************** 1. row ***************************
           Name: broker1
