@@ -7,7 +7,7 @@ Converts a given time to the start time of a time interval based on the specifie
 ## Syntax
 
 ```Plain
-DATETIME time_slice(DATETIME dt, INT INTERVAL N type)
+DATETIME time_slice(DATETIME dt, INTERVAL N type)
 ```
 
 ## **Parameters**
