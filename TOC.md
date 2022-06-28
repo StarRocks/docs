@@ -285,6 +285,7 @@
       + [variance](/sql-reference/sql-functions/aggregate-functions/variance.md)
       + [square](/sql-reference/sql-functions/aggregate-functions/square.md)
       + [var_samp](/sql-reference/sql-functions/aggregate-functions/var_samp.md)
+      + [window_funnel](/sql-reference/sql-functions/aggregate-functions/window_funnel.md)
     + Bitmap Functions
       + [bitmap_and](/sql-reference/sql-functions/bitmap-functions/bitmap_and.md)
       + [bitmap_andnot](/sql-reference/sql-functions/bitmap-functions/bitmap_andnot.md)
