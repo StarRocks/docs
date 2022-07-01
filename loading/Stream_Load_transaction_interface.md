@@ -16,7 +16,7 @@ If data writes within a transaction fail, the transaction automatically rolls ba
 
 You can use the `stream_load_default_timeout_second` parameter in the configuration file of each frontend (FE) to specify a default transaction timeout period for that FE.
 
-When you create a transaction, you can use the `timeout` field in the HTTP request header to specify a timeout period for the transaction. 
+When you create a transaction, you can use the `timeout` field in the HTTP request header to specify a timeout period for the transaction.
 
 When you create a transaction, you can also use the `idle_transaction_timeout` field in the HTTP request header to specify a timeout period within which the transaction can stay idle. If no data is written within the timeout period, the transaction automatically rolls back.
 
