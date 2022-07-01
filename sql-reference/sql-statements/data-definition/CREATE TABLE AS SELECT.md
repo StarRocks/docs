@@ -46,24 +46,24 @@ You can use the CREATE TABLE AS SELECT (CTAS) statement to synchronously or asyn
   [ ... ]
   ```
 
-The preceding syntax creates a Task, which is a template for storing a task that executes the CTAS statement. You can check the information of the Task by using the following syntax.
+  The preceding syntax creates a Task, which is a template for storing a task that executes the CTAS statement. You can check the information of the Task by using the following syntax.
 
-```SQL
-SELECT * FROM INFORMATION_SCHEMA.tasks;
-```
+  ```SQL
+  SELECT * FROM INFORMATION_SCHEMA.tasks;
+  ```
 
-After you run the Task, a TaskRun is generated accordingly. A TaskRun indicates a task that executes the CTAS statement. A TaskRun has the following four states:
+  After you run the Task, a TaskRun is generated accordingly. A TaskRun indicates a task that executes the CTAS statement. A TaskRun has the following four states:
 
-- `PENDING`: The task waits to be run.
-- `RUNNING`: The task is running.
-- `FAILED`: The task failed.
-- `SUCCESS`: The task runs successfully.
+  - `PENDING`: The task waits to be run.
+  - `RUNNING`: The task is running.
+  - `FAILED`: The task failed.
+  - `SUCCESS`: The task runs successfully.
 
-You can check the state of a TaskRun by using the following syntax.
+  You can check the state of a TaskRun by using the following syntax.
 
-```SQL
-SELECT * FROM INFORMATION_SCHEMA.task_runs;
-```
+  ```SQL
+  SELECT * FROM INFORMATION_SCHEMA.task_runs;
+  ```
 
 ## Parameters
 
