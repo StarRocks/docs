@@ -125,7 +125,7 @@ For example, to query data in `hive_catalog.hive_db.hive_table`, perform the fol
 
 #### Cross-catalog query
 
-- Query `hive_table` in `hive_table` when the current session is `default_catalog.olap_db`. 
+- Query `hive_table` in `hive_table` when the current session is `default_catalog.olap_db`.
 
     ```SQL
     SELECT * FROM hive_catalog.hive_db.hive_table;
