@@ -2,7 +2,7 @@
 
 ## Description
 
-After you use the GRANT statement to impersonate a specific user identity to perform operations, you can use the EXECUTE AS statement to switch the execution context of the current session to this user.
+After you use the [GRANT](../account-management/GRANT.md) statement to impersonate a specific user identity to perform operations, you can use the EXECUTE AS statement to switch the execution context of the current session to this user.
 
 ## Syntax
 
