@@ -304,7 +304,8 @@ PARTITION BY RANGE(`dt`) (
 
 ) DISTRIBUTED BY HASH(order_id) BUCKETS 4
 
-PROPERTIES("replication_num" = "3");
+PROPERTIES("replication_num" = "3",
+"replication_num" = "3");
 ```
 
 Example 2: Create a status table that uses the Primary Key model.
@@ -340,7 +341,8 @@ create table users (
 
 DISTRIBUTED BY HASH(user_id) BUCKETS 4
 
-PROPERTIES("replication_num" = "3");
+PROPERTIES("replication_num" = "3",
+"replication_num" = "3");
 ```
 
 Take note of the following points:
@@ -357,6 +359,8 @@ Take note of the following points:
  `(12 + 9 1000W * 3 * 1.5 (average additional overhead per hash table) = 945 MB`
 
   In the preceding formula, `9` is the fixed memory consumption per row, and `1.5` indicates the average additional memory consumpdtion per hash table.
+
+- `enable_persistent_index`: whether to enable persistent primary key indexes. A persistent primary key index is stored in both the disk and memory to prevent excessive memory consumption. The value can be `true` or `false`. If the disk is SSD, we recommend that you set this parameter to `true`.
 
 #### Update a table
 
