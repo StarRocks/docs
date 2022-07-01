@@ -221,6 +221,7 @@ ALTER RESOURCE GROUP group_name WITH (
 ```
 
 Execute the following statement to delete a resource group:
+
 ```SQL
 DROP RESOURCE GROUP group_name;
 ```
