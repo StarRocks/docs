@@ -160,15 +160,15 @@ ErrMsg:
 1 row in set (0.03 sec)
 ```
 
-`Role` is `FOLLOWER`, indicating that the FE is eligible to be elected as the master. `IsMaster` is true, indicating that the FE is currently the master node.
+`Role` is `FOLLOWER`, indicating that the FE is eligible to be elected as the leader. `IsMaster` is true, indicating that the FE is currently the leader node.
 
 If the MySQL client connection is not successful, use the log file (`log/fe.warn.log`) for troubleshooting. Since it is the initial setup, feel free to start over if you encounter any unexpected problems.
 
 ### FE High-Availability Cluster Deployment
 
-FE's high-availability clusters use a master-slave replication architecture to avoid single points of failure. FE uses the raft-like bdbje protocol to complete master selection, log replication, and failover. In FE clusters, instances are divided into two roles -- follower and observer. The follower is a voting member of the replication protocol, participating in the selection of the master and submitting logs. Its general number is odd (2n+1). It takes majority (n+1) for confirmation and tolerates minority (n) failure. The observer is a non-voting member and is used to subscribe to replication logs asynchronously. The status of the observer lags behind the follower, similar to the leaner role in other replication protocols.
+FE's high-availability clusters use a primary-secondary replication architecture to avoid single points of failure. FE uses the raft-like BDBJE protocol to complete leader selection, log replication, and failover. In FE clusters, instances are divided into two roles -- follower and observer. The follower is a voting member of the replication protocol, participating in the selection of the leader and submitting logs. Its general number is odd (2n+1). It takes majority (n+1) for confirmation and tolerates minority (n) failure. The observer is a non-voting member and is used to subscribe to replication logs asynchronously. The status of the observer lags behind the follower, similar to the leaner role in other replication protocols.
 
-The FE cluster automatically selects the master node from the followers. The master node executes all state changes. A change can be initiated from a non-master node, and then forwarded to the master node for execution. The non-master node records the LSN of the most recent change in the replication log. The read operation can be performed directly on the non-master node, but it needs to wait until the state of the non-master node gets synchronized with the LSN of the last operation. Observer nodes can increase the read load capacity of the FE cluster. Users with little urgency can read the observer nodes.
+The FE cluster automatically selects the leader node from the followers. The leader node executes all state changes. A change can be initiated from a non-leader node, and then forwarded to the leader node for execution. The non-leader node records the LSN of the most recent change in the replication log. The read operation can be performed directly on the non-leader node, but it needs to wait until the state of the non-leader node gets synchronized with the LSN of the last operation. Observer nodes can increase the read load capacity of the FE cluster. Users with little urgency can read the observer nodes.
 
 The clock difference between the FE nodes should not exceed 5s. Use the NTP protocol to calibrate the time.
 
@@ -201,7 +201,7 @@ alter system drop follower "fe_host:edit_log_port";
 alter system drop observer "fe_host:edit_log_port";
 ```
 
-Step 3: FE nodes need to be interconnected in pairs to complete master selection, voting, log submission, and replication. When the FE node is first initiated, a node in the existing cluster needs to be designated as a helper. The helper node gets the configuration information of all the FE nodes in the cluster to establish a connection. Therefore, during initiation, specify the `--helper` parameter:
+Step 3: FE nodes need to be interconnected in pairs to complete leader selection, voting, log submission, and replication. When the FE node is first initiated, a node in the existing cluster needs to be designated as a helper. The helper node gets the configuration information of all the FE nodes in the cluster to establish a connection. Therefore, during initiation, specify the `--helper` parameter:
 
 ```shell
 ./bin/start_fe.sh --helper host:port --daemon

@@ -167,7 +167,7 @@ binlog-format=ROW # Select ROW mode
 server_id=1 # MySQL replica     tion need to be defined, and do not duplicate canal's slaveId
 ~~~
 
-* Create an account and grant privileges to the MySQL slave:
+* Create an account and grant privileges to the secondary MySQL server:
 
 ~~~sql
 CREATE USER canal IDENTIFIED BY 'canal';
