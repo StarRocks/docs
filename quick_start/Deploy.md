@@ -168,8 +168,8 @@ ReplayedJournalId: 1303
 1 row in set (0.02 sec)
 ```
 
-* If the field **Role** is **FOLLOWER**, this FE node is eligible to be elected as the Master node.
-* If the field **IsMaster** is **true**, this FE node is the Master node.
+* If the field **Role** is **FOLLOWER**, this FE node is eligible to be elected as the Leader node.
+* If the field **IsMaster** is **true**, this FE node is the Leader node.
 
 If you failed to connect via MySQL client, you can check **log/fe.warn.log** to identify the problem.
 
