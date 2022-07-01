@@ -30,6 +30,7 @@
   + [Json Loading](/loading/Json_loading.md)
   + [Synchronize data from MySQL](/loading/Flink_cdc_load.md)
   + [Load data by using flink-connector-starrocks](/loading/Flink-connector-starrocks.md)
+  + [Load data by using Stream Load transaction interface](/loading/Stream_Load_transaction_interface.md)
   + [DataX Writer](/loading/DataX-starrocks-writer.md)
 + Data Export
   + [Export](/unloading/Export.md)
@@ -44,7 +45,7 @@
   + [Array](/using_starrocks/Array.md)
   + [Window Function](/using_starrocks/Window_function.md)
   + [SHOW ROLES](/sql-reference/sql-statements/account-management/SHOW%20ROLES.md)
-  + [Java UDFs](/using_starrocks/Java-UDFs.md)
+  + [Java UDFs](/using_starrocks/JAVA_UDF.md)
   + [Cost Based Optimizer](/using_starrocks/Cost_based_optimizer.md)
   + [Lateral Join](/using_starrocks/Lateral_join.md)
   + [Configure a time zone](/using_starrocks/timezone.md)
@@ -201,12 +202,14 @@
       + [second](/sql-reference/sql-functions/date-time-functions/second.md)
       + [str_to_date](/sql-reference/sql-functions/date-time-functions/str_to_date.md)
       + [timediff](/sql-reference/sql-functions/date-time-functions/timediff.md)
+      + [time_slice](/sql-reference/sql-functions/date-time-functions/time_slice.md)
       + [timestampadd](/sql-reference/sql-functions/date-time-functions/timestampadd.md)
       + [timestampdiff](/sql-reference/sql-functions/date-time-functions/timestampdiff.md)
       + [to_date](/sql-reference/sql-functions/date-time-functions/to_date.md)
       + [to_days](/sql-reference/sql-functions/date-time-functions/to_days.md)
       + [unix_timestamp](/sql-reference/sql-functions/date-time-functions/unix_timestamp.md)
       + [utc_timestamp](/sql-reference/sql-functions/date-time-functions/utc_timestamp.md)
+      + [week](/sql-reference/sql-functions/date-time-functions/week.md)
       + [weekofyear](/sql-reference/sql-functions/date-time-functions/weekofyear.md)
       + [year](/sql-reference/sql-functions/date-time-functions/year.md)
     + Geographic Functions
@@ -283,6 +286,7 @@
       + [variance](/sql-reference/sql-functions/aggregate-functions/variance.md)
       + [square](/sql-reference/sql-functions/aggregate-functions/square.md)
       + [var_samp](/sql-reference/sql-functions/aggregate-functions/var_samp.md)
+      + [window_funnel](/sql-reference/sql-functions/aggregate-functions/window_funnel.md)
     + Bitmap Functions
       + [bitmap_and](/sql-reference/sql-functions/bitmap-functions/bitmap_and.md)
       + [bitmap_andnot](/sql-reference/sql-functions/bitmap-functions/bitmap_andnot.md)
@@ -298,8 +302,10 @@
       + [bitmap_remove](/sql-reference/sql-functions/bitmap-functions/bitmap_remove.md)
       + [bitmap_to_string](/sql-reference/sql-functions/bitmap-functions/bitmap_to_string.md)
       + [bitmap_union](/sql-reference/sql-functions/bitmap-functions/bitmap_union.md)
+      + [bitmap_union_count](/sql-reference/sql-functions/bitmap-functions/bitmap_union_count.md)
       + [bitmap_xor](/sql-reference/sql-functions/bitmap-functions/bitmap_xor.md)
       + [to_bitmap](/sql-reference/sql-functions/bitmap-functions/to_bitmap.md)
+      + [base64_to_bitmap](/sql-reference/sql-functions/bitmap-functions/base64_to_bitmap.md)
     + Array Functions
       + [array_agg](/sql-reference/sql-functions/array-functions/array_agg.md)
       + [array_append](/sql-reference/sql-functions/array-functions/array_append.md)
@@ -337,6 +343,7 @@
   + [Configuration](/administration/Configuration.md)
   + [Scale In and Out](/administration/Scale_up_down.md)
   + [Backup and Restore](/administration/Backup_and_restore.md)
+  + [Deploy StarRocks with StarGo](/administration/stargo.md)
   + Data Recovery
     + [Data Recovery](/administration/Data_recovery.md)
     + [Restore FEs](/administration/Metadata_recovery.md)

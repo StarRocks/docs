@@ -4,6 +4,8 @@ StarRocks supports importing data directly from local files in CSV file format. 
 
 Stream Load is a synchronous import method, where the user sends an HTTP request to import a local file or data stream into StarRocks. The return value of the request reflects whether the import was successful or not.
 
+StarRocks provides a Stream Load transaction interface to implement two-phase commit (2PC) of transactions that are run to stream data from external systems such as Apache Flink® and Apache Kafka®. The Stream Load transaction interface helps improve the performance of highly concurrent stream loads. You can optionally run stream load jobs by using the Stream Load transaction interface. For more information, see [Load data by using Stream Load transaction interface](/loading/Stream_Load_transaction_interface.md).
+
 ## Explanation of terms
 
 * **Coordinator**: a coordinating node. Responsible for receiving data, distributing it to other data nodes, and returning the result to the user after the import is complete.
@@ -34,7 +36,7 @@ The attributes supported in the header are described in the import job parameter
 **Example:**
 
 ~~~bash
-curl --location-trusted -u root -T date -H "label:123" \
+curl --location-trusted -u root -T data.file -H "label:123" \
     http://abc.com:8030/api/test/date/_stream_load
 ~~~
 
@@ -179,6 +181,6 @@ See the section [Loading_intro/FAQs](/loading/Loading_intro.md#FAQs).
 * Label Already Exists
 
 See the section [Loading_intro/FAQs](/loading/Loading_intro.md#FAQs). Stream load jobs are submitted via the HTTP protocol, and generally the HTTP Client of each language has its own request retry logic. StarRocks will start to operate stream load after receiving the first request, but it is possible that the client will retry to create the request again because the result is not returned to them in time. At this time, StarRocks is already operating the first request, so the second request will encounter the error:`Label Already Exists`.
-One possible way to troubleshoot the above situation is to use `Label` to search the FE Master's logs and see if the same label is present twice. If so, that indicates that the client has submitted the request repeatedly.
+One possible way to troubleshoot the above situation is to use `Label` to search leader FE's logs and see if the same label is present twice. If so, that indicates that the client has submitted the request repeatedly.
 
 It is recommended to calculate the approximate import time based on the data volume of the current request. Meanwhile, increase the request timeout on the client side based on the import timeout to avoid the request being submitted multiple times by the Client.

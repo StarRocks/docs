@@ -304,7 +304,7 @@ If the BE node is not properly added to the cluster, you can check the **log/be.
 The following logs in the file indicates the parameter `priority_networks` is not properly set.
 
 ```Plain Text
-W0708 17:16:27.308156 11473 heartbeat_server.cpp:82\] backend ip saved in master does not equal to backend local ip127.0.0.1 vs. 172.16.xxx.xx
+W0708 17:16:27.308156 11473 heartbeat_server.cpp:82\] backend ip saved in leader does not equal to backend local ip127.0.0.1 vs. 172.16.xxx.xx
 ```
 
 You can drop the wrong BE node and re-add it to the cluster with correct IP address.

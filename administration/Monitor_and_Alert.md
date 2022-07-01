@@ -91,6 +91,13 @@ The available metrics are:
 |disk_io_svctm|Ms|average| Disk IO service time |
 |disk_io_util|percentage|average| Disk usage |
 |disk_used|bytes|average| Used disk capacity |
+|starrocks_fe_query_resource_group|pcs|cumulative|The number of queries for each resource group|
+|starrocks_fe_query_resource_group_latency|second|average|the query latency percentile for each resource group|
+|starrocks_fe_query_resource_group_err|pcs|cumulative|The number of incorrect queries for each resource group|
+|starrocks_be_resource_group_cpu_limit_ratio|percentage|Instantaneous|Instantaneous value of resource group cpu quota ratio|
+|starrocks_be_resource_group_cpu_use_ratio|percentage|Instantaneous|Instantaneous value of resource group cpu usage ratio|
+|starrocks_be_resource_group_mem_limit_bytes|Byte|Instantaneous|Instantaneous value of resource group memory quota|
+|starrocks_be_resource_group_mem_allocated_bytes|Byte|Instantaneous|Instantaneous value of resource group memory usage|
 
 ## Monitoring Alarm Best Practices
 
@@ -323,7 +330,7 @@ The top left corner shows the Dashboard name.
 The top right corner shows the current time range. Use the drop down to select a different time range and specify an interval for page refresh.
 cluster_name: The `job_name` of each job in the Prometheus configuration file, representing a StarRocks cluster. You can select a cluster and view its monitoring information in the chart.
 
-* fe_master: The master frontend node of the cluster.
+* fe_master: The leader node of the cluster.
 * fe_instance: All frontend nodes of the corresponding cluster. Select to view the monitoring information in the chart.
 * be_instance: All backend nodes of the corresponding cluster. Select to view the monitoring information in the chart.
 * interval: Some charts show intervals  related to monitoring items. Interval is customizable(Note: 15s interval may cause some charts not to display).

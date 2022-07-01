@@ -28,8 +28,8 @@ After the service is started, you may adjust the configuration parameters to mee
 |tmp_dir|starrocksFe.STARROCKS_HOME_DIR/temp_ddir| Directory where temporary files are kept, such as backup/restore, etc. |
 |edit_log_port|9010| The port used for communication between FE Groups (Master, Follower, Observer) |
 |edit_log_roll_num|50000| Split size of image log |
-|meta_delay_toleration_second|300| Maximum metadata lag time tolerated by non-master nodes |
-|master_sync_policy|SYNC| Swipe method for master’s log, SYNC by default |
+|meta_delay_toleration_second|300| Maximum metadata lag time tolerated by non-leader nodes |
+|master_sync_policy|SYNC| Swipe method for leader’s log, SYNC by default |
 |replica_sync_policy|SYNC| Swipe method for follower’s log,  SYNC by default |
 |replica_ack_policy|SIMPLE_MAJORITY| The form in which logs are considered valid. The default is for the majority to return a confirmation message, which is considered to be in effect |
 |bdbje_heartbeat_timeout_second|30|The interval for BDBJE heartbeat timeout|
@@ -39,7 +39,7 @@ After the service is started, you may adjust the configuration parameters to mee
 |priority_networks| empty string | Specify BE IP address in the form of CIDR 10.10.10.0/24 for machines with multiple IPs |
 |metadata_failure_recovery|false| Forced reset of FE metadata. Use with caution |
 |ignore_meta_check|false| Ignore the metadata lag |
-|max_bdbje_clock_delta_ms|5000| Maximum tolerated time offset between master and non-master |
+|max_bdbje_clock_delta_ms|5000| Maximum tolerated time offset between leader and non-leader |
 |http_port|8030| Port of Http Server |
 |http_backlog_num|1024|HttpServer port backlog|
 |thrift_backlog_num|1024|ThriftServer port backlog|
@@ -76,6 +76,7 @@ After the service is started, you may adjust the configuration parameters to mee
 |export_checker_interval_second|5| Interval for exporting thread polling |
 |export_running_job_num_limit|5| Maximum number of exporting jobs |
 |export_task_default_timeout_second|7200| Timeout for export job, 2 hours by default |
+|empty_load_as_error|TRUE|Switch value to control if to return error `all partitions have no load data` when the data to load is empty. If this parameter is set as `false`, the system returns `OK` instead of the error when the data to load is empty.|
 |export_max_bytes_per_be_per_task|268435456| Maximum amount of data exported by a single export job on a single be, 256M by default |
 |export_task_pool_size|5| Size of export task thread pool, 5 by default |
 |consistency_check_start_time|23| The start time for FE to initiate replica consistency check |
@@ -173,15 +174,13 @@ After the service is started, you may adjust the configuration parameters to mee
 |base_compaction_num_threads_per_disk|1|Number of BaseCompaction threads per disk|
 |base_cumulative_delta_ratio|0.3|BaseCompaction trigger: The target ratio between cumulative and base files |
 |base_compaction_interval_seconds_since_last_operation|86400|BaseCompaction trigger: The interval for triggering the next BaseCompaction|
-|base_compaction_write_mbytes_per_sec|5| Speed limit of BaseCompaction to write disk |
 |cumulative_compaction_check_interval_seconds|10| Interval of CumulativeCompaction thread polling |
 |min_cumulative_compaction_num_singleton_deltas|5| CumulativeCompaction trigger: the lower limit on the number of Singleton files to be reached |
 |max_cumulative_compaction_num_singleton_deltas|1000| CumulativeCompaction trigger: the upper limit on the number of Singleton files to be reached |
-|cumulative_compaction_num_threads_per_disk|1| Number of CumulativeCompaction threads per disk |
-|cumulative_compaction_budgeted_bytes|104857600|BaseCompaction trigger: The sum limit of Singleton file size, default by 100MB |
 |cumulative_compaction_write_mbytes_per_sec|100| Speed limit of CumulativeCompaction to write disk |
-|min_compaction_failure_interval_sec|600| Interval for Tablet Compaction to be scheduled again after a failure. |
-|max_compaction_concurrency|-1| Maximum concurrency for BaseCompaction and CumulativeCompaction.-1 indicates no limit |
+|min_compaction_failure_interval_sec|600| Interval for Tablet Compaction to be scheduled again after a failure |
+|max_compaction_concurrency|4| Maximum concurrency for BaseCompaction and CumulativeCompaction. -1 indicates no limit |
+|compaction_trace_threshold|60|Time threshold for each compaction to print the trace. System will print trace log once a compaction exceeds this threshold. Unit: second |
 |webserver_port|8040| Http Server port |
 |webserver_num_workers|5| Number of Http Server threads |
 |periodic_counter_update_period_ms|500| Interval for getting counter statistics |
