@@ -1,60 +1,56 @@
 # CREATE FILE
 
-## description
+You can execute the CREATE FILE statement to create a file. After a file is created, the file is uploaded and persisted in StarRocks. In a database, only an admin user can create and delete files, and all users who have permission to access the database can use the files that belong to the database.
 
-This statement is used to create and upload a file to the StarRocks cluster. This function is often used to manage files that need to be used in other commands, such as certificates, public keys and private keys, etc.
+## Basic concepts
 
-This command can only be excuted by users with admin privileges. A file belongs to a database. Users who have access to this database can use the file.
+**File**: refers to the file that is created and saved in StarRocks. After a file is created and stored in StarRocks, StarRocks assigns a unique ID to the file. You can find a file based on the database name, catalog, and file name.
 
-The size of a single file is limited to 1MB.
+## Syntax
 
-A StarRocks cluster uploads up to 100 files.
-
-Syntax:
-
-```sql
+```SQL
 CREATE FILE "file_name" [IN database]
 [properties]
 ```
 
-Note:
+## Parameters
 
-```plain text
-file_name: Custom file name
-database: The file belongs to a db. If not specified, the db of the current session will be used. 
-Properties support the following parameters: 
+| **Parameter** | **Required** | **Description**                                              |
+| ------------- | ------------ | ------------------------------------------------------------ |
+| file_name     | Yes          | The name of the file.                                        |
+| database      | No           | The database to which the file belongs. If you do not specify this parameter, this parameter defaults to the name of the database that you access in the current session. |
+| properties    | Yes          | The properties of the file. The following table describes the configuration items of properties. |
 
-Url: Mandatory. Specify the download path of a file. Currently, only unauthenticated HTTP download paths are supported. After the command is successfully executed, the file will be stored in StarRocks and url is no longer needed. 
-Catalog: Mandatory. Custom the type name of the file. Some commands will look for files in specified catalog. For example, in a routine import, when the data source is kafka, files under the catalog named kafka will be looked up.  
-md5: Optional. Md5 of the file. If specified, it will be checked after downloading the file. 
+**Configuration items of** **`properties`**
+
+| **Configuration item** | **Required** | **Description**                                              |
+| ---------------------- | ------------ | ------------------------------------------------------------ |
+| url                    | Yes          | The URL from which you can download the file. Only an unauthenticated HTTP URL is supported. After the file is stored in StarRocks, the URL is no longer needed. |
+| catalog                | Yes          | The category to which the file belongs. You can specify a catalog based on your business requirements. However, in some situations, you must set this parameter to a specific catalog. For example, if you load data from Kafka, StarRocks searches for files in the catalog from the Kafka data source. |
+| MD5                    | No           | The message-digest algorithm that is used to check a file. If you specify this parameter, StarRoocks checks the file after the file is downloaded. |
+
+## Examples
+
+- Create a file named  **test.pem** under the category named kafka.
+
+```SQL
+CREATE FILE "test.pem"
+PROPERTIES
+(
+    "url" = "https://starrocks-public.oss-cn-xxxx.aliyuncs.com/key/test.pem",
+    "catalog" = "kafka"
+);
 ```
 
-## example
+- Create a file named **client.key** under the category named my_catelog.
 
-1. Create a file ca.pem and categorize it as kafka.
-
-    ```sql
-    CREATE FILE "ca.pem"
-    PROPERTIES
-    (
-        "url" = "https://test.bj.bcebos.com/kafka-key/ca.pem",
-        "catalog" = "kafka"
-    );
-    ```
-
-2. Create a file client.key and categorize it as my_catalog.
-
-    ```sql
-    CREATE FILE "client.key"
-    IN my_database
-    PROPERTIES
-    (
-        "url" = "https://test.bj.bcebos.com/kafka-key/client.key",
-        "catalog" = "my_catalog",
-        "md5" = "b5bb901bf10f99205b39a46ac3557dd9"
-    );
-    ```
-
-## keyword
-
-CREATE,FILE
+```SQL
+CREATE FILE "client.key"
+IN my_database
+PROPERTIES
+(
+    "url" = "http://test.bj.bcebos.com/kafka-key/client.key",
+    "catalog" = "my_catalog",
+    "md5" = "b5bb901bf10f99205b39a46ac3557dd9"
+);
+```

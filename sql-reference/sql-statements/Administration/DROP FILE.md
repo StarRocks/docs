@@ -1,34 +1,32 @@
-# DROP FILE
+# DROP FIEL
 
-## description
+You can execute the DROP FILE statement to delete a file. When you use this statement to delete a file, the file is deleted both in frontend (FE) memory and in Berkeley DB Java Edition (BDBJE).
 
-This statement is used to delete an uploaded file.
+## Syntax
 
-Syntax:
-
-```sql
+```SQL
 DROP FILE "file_name" [FROM database]
 [properties]
 ```
 
-Note:
+## Parameters
 
-```plain text
-file_name:  File name
-database: A db to which a file belongs. If not specified, db of the current session will be used. 
+| **Parameter** | **Required** | **Description**                                              |
+| ------------- | ------------ | ------------------------------------------------------------ |
+| file_name     | Yes          | The name of the file.                                        |
+| database      | No           | The database to which a file belongs.                        |
+| properties    | Yes          | The properties of the file. The following table describes the configuration items of properties. |
 
-Properties support the following parameters: 
-Catalog: mandatory. Classification of files. 
+**Configuration items of** **`properties`**
+
+| **Configuration items** | **Required** | **Description**                       |
+| ----------------------- | ------------ | ------------------------------------- |
+| catalog                 | Yes          | The category to which a file belongs. |
+
+## Examples
+
+Delete a file named **ca.pem**.
+
+```SQL
+DROP FILE "ca.pem" properties("catalog" = "kafka");
 ```
-
-## example
-
-1. Delete the file ca.pem
-
-    ```sql
-    DROP FILE "ca.pem" properties("catalog" = "kafka");
-    ```
-
-## keyword
-
-DROP,FILE
