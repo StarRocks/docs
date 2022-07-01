@@ -10,7 +10,7 @@ Download the following files to your central control node:
 
 - **sr-ctl**: The binary file of StarGo. You do not need to install it after downloading it.
 - **sr-c1.yaml**: The template for the deployment configuration file.
-- **repo.yaml**: The configuration file for the download path of StarRocks installer. 
+- **repo.yaml**: The configuration file for the download path of StarRocks installer.
 
 > Note
 > You can access `http://cdn-thirdparty.starrocks.com` to get the corresponding installation index files and installers.
