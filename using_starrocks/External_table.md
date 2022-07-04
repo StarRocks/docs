@@ -414,7 +414,13 @@ StarRocks has permissions to access the Hive metastore, HDFS cluster, and object
 
 Before you create a database and Iceberg external table in StarRocks, you must create an Iceberg resource in StarRocks. The resource manages the connection information with the Iceberg data source. After the resource is created, you can create an Iceberg external table.
 
-Run the following command to create an Iceberg resource named `iceberg0`.
+* If the metadata of an Iceberg table is obtained from a Hive metastore, you can create a resource and set the catalog type to `HIVE`.
+
+* If the metadata of an Iceberg table is obtained from other services, you need to create a custom catalog. Then create a resource and set the catalog type to `CUSTOM`.
+
+##### Create a resource whose catalog type is `HIVE`
+
+For example, create a resource named `iceberg0` and set the catalog type to `HIVE`.
 
 ~~~SQL
 CREATE EXTERNAL RESOURCE "iceberg0" 
@@ -436,13 +442,43 @@ PROPERTIES (
 |   starrocks.catalog-type  |  The catalog type. Only the Hive catalog is supported. The value is `HIVE`.    |
 |   iceberg.catalog.hive.metastore.uris  |  The thrift URI of the Hive metastore. Apache Iceberg uses the Hive catalog to access the Hive metastore and create and manage tables. You must pass in the thrift URI of the Hive metastore. The parameter value is in the following format: thrift://< Hive metadata IP address >:< Port number >. The port number defaults to 9083.   |
 
-Run the following command to query Iceberg resources in StarRocks.
+| **Parameter**                       | **Description**                                              |
+| ----------------------------------- | ------------------------------------------------------------ |
+| type                                | The resource type. Set the value to `iceberg`.               |
+| starrocks.catalog-type              | The catalog type of the resource. Both Hive catalog and custom catalog are supported. If you specify a Hive catalog, set the value to `HIVE`.If you specify a custom catalog, set the value to `CUSTOM`. |
+| iceberg.catalog.hive.metastore.uris | The URI of the Hive metastore. The parameter value is in the following format: `thrift://< IP address of Iceberg metadata >:< port number >`. The port number defaults to 9083. Apache Iceberg uses a Hive catalog to access the Hive metastore and then queries the metadata of Iceberg tables. |
+
+##### Create a resource whose catalog type is `CUSTOM`
+
+A custom catalog needs to inherit the abstract class BaseMetastoreCatalog, and you need to implement the IcebergCatalog interface. For more information about how to create a custom catalog, see [IcebergHiveCatalog](https://github.com/StarRocks/starrocks/blob/main/fe/fe-core/src/main/java/com/starrocks/external/iceberg/IcebergHiveCatalog.java). Additionally, the class name of a custom catalog cannot be duplicated with the name of the class that already exists in StarRock. After the catalog is created, package the catalog and its related files, and place them under the **fe/lib** path of each frontend (FE). Then restart each FE. After you complete the preceding operations, you can create a resource whose catalog is a custom catalog.
+
+For example, create a resource named `iceberg1` and set the catalog type to `CUSTOM`.
+
+~~~SQL
+CREATE EXTERNAL RESOURCE "iceberg1" 
+PROPERTIES ( "type" = "iceberg", "starrocks.catalog-type"="CUSTOM", "iceberg.catalog-impl"="com.starrocks.IcebergCustomCatalog" 
+);
+~~~
+
+The following table describes the related parameters.
+
+| **Parameter**          | **Description**                                              |
+| ---------------------- | ------------------------------------------------------------ |
+| type                   | The resource type. Set the value to `iceberg`.               |
+| starrocks.catalog-type | The catalog type of the resource. Both Hive catalog and custom catalog are supported. If you specify a Hive catalog, set the value to `HIVE`.If you specify a custom catalog, set the value to `CUSTOM`. |
+| iceberg.catalog-impl   | The fully qualified class name of the custom catalog. FEs search for the catalog based on this name. If the catalog contains custom configuration items, you must add them to the `PROPERTIES` parameter as key-value pairs when you create an Iceberg external table. |
+
+You can modify `hive.metastore.uris` and `iceberg.catalog-impl`of a Iceberg resource in StarRocks 2.3 and later versions. For more information, see [ALTER RESOURCE](../sql-reference/sql-statements/data-definition/ALTER%20RESOURCE.md).
+
+##### View Iceberg resources
 
 ~~~SQL
 SHOW RESOURCES;
 ~~~
 
-Run the following command to drop the Iceberg resource `iceberg0`.
+##### Drop an Iceberg resource
+
+For example, drop a resource named `iceberg0`.
 
 ~~~SQL
 DROP RESOURCE "iceberg0";
