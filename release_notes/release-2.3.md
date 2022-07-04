@@ -60,7 +60,7 @@
 
 ### Bug Fixes
 
-- Fix the following bugs:
+Fix the following bugs:
 
 - CPU utilization increases abnormally high due to an excessive number of tablets. [#5875](https://starrocks.atlassian.net/browse/SR-5875)
 
