@@ -16,7 +16,7 @@
 
 - Support the following resource group-related features:
   - Monitor resource groups: You can use the audit log to view a query in which resource group  and call API operations to obtain the monitoring metrics about specific resource groups. For more information, see [Monitor and Alerting](../administration/Monitor_and_Alert.md#monitor-and-alerting).
-  - Limit the consumption of large queries on CPU, memory, or I/O resources: You can route queries to resource groups by matching classifiers or configure session variables to directly specify resource groups for queries. For more information, see [Resource group](../administration/Resource_Group.md).
+  - Limit the consumption of large queries on CPU, memory, or I/O resources: You can route queries to resource groups by matching classifiers or configure session variables to directly specify resource groups for queries. For more information, see [Resource group](../administration/resource_group.md).
 
 - StarRocks provides JDBC external tables to query Oracle, PostgreSQL, MySQL, SQLServer, Clickhouse, and other databases. StarRocks also supports predicate pushdown when performing queries. For more information, see [External table for databases that support JDBC drivers](../using_starrocks/External_table.md#external-table-for-databases-that-support-jdbc-drivers).
 
