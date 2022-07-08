@@ -802,13 +802,13 @@ You must create Hudi resources in your StarRocks cluster. The Hudi resources are
 
 Execute the following statement to create a Hudi resource named `hudi0`:
 
-```SQL
+~~~SQL
 CREATE EXTERNAL RESOURCE "hudi0" 
 PROPERTIES ( 
     "type" = "hudi", 
     "hive.metastore.uris" = "thrift://192.168.7.251:9083"
 );
-```
+~~~
 
 The following table describes the parameters.
 
@@ -823,17 +823,17 @@ From v2.3 onwards, StarRocks allows changing the `hive.metastore.uris` value of 
 
 Execute the following statement to view all Hudi resources that are created in your StarRocks cluster:
 
-```SQL
+~~~SQL
 SHOW RESOURCES;
-```
+~~~
 
 ##### Delete a Hudi resource
 
 Execute the following statement to delete the Hudi resource named `hudi0`:
 
-```SQL
+~~~SQL
 DROP RESOURCE "hudi0";
-```
+~~~
 
 > Note:
 >
@@ -843,10 +843,10 @@ DROP RESOURCE "hudi0";
 
 Execute the following statement to create and open a Hudi database named `hudi_test` in your StarRocks cluster:
 
-```SQL
+~~~SQL
 CREATE DATABASE hudi_test; 
 USE hudi_test; 
-```
+~~~
 
 > Note:
 >
@@ -856,7 +856,7 @@ USE hudi_test;
 
 Execute the following statement to create a Hudi external table named `hudi_tbl` in the `hudi_test` Hudi database:
 
-```SQL
+~~~SQL
 CREATE EXTERNAL TABLE `hudi_tbl` ( 
     `id` bigint NULL, 
     `data` varchar(200) NULL 
@@ -866,7 +866,7 @@ PROPERTIES (
     "database" = "hudi", 
     "table" = "hudi_table" 
 ); 
-```
+~~~
 
 The following table describes the parameters.
 
@@ -904,6 +904,6 @@ The following table describes the parameters.
 
 After you create a Hudi external table associated with a specific Hudi managed table, you do not need to load data into the Hudi external table. To query data from Hudi, execute the following statement:
 
-```SQL
+~~~SQL
 SELECT COUNT(*) FROM hudi_tbl;
-```
+~~~
