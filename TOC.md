@@ -327,9 +327,12 @@
     + Math Functions
       + [RAND](/sql-reference/sql-functions/math-functions/rand.md)
       + [square](/sql-reference/sql-functions/math-functions/square.md)
-  + [System Variables](/reference/System_variable.md)
-  + [Error Code](/reference/Error_code.md)
-  + [System Limit](/reference/System_limit.md)
+    + Utility Functions
+      + [uuid](/sql-reference/sql-functions/utility-functions/uuid.md)
+      + [uuid_numeric](/sql-reference/sql-functions/utility-functions/uuid_numeric.md)
+  + [System variables](/reference/System_variable.md)
+  + [Error code](/reference/Error_code.md)
+  + [System limits](/reference/System_limit.md)
 + Administration
   + [Build in Docker](/administration/Build_in_docker.md)
   + [Manage a cluster](/administration/Cluster_administration.md)
