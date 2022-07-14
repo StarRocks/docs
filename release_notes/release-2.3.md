@@ -6,7 +6,7 @@
 
 - The Primary Key model supports the full DELETE WHERE syntax. For more information, see [DELETE](../sql-reference/sql-statements/data-manipulation/DELETE.md#delete-and-primary-key-model).
 
-- The Primary Key model supports persistent primary index. You can choose to persist and use primary key index on disk rather than in memory, significantly reducing memory usage. For more information, see [Primary Key model](../table_design/Data_model.md#how-to-use-it-3).
+- The Primary Key model supports the persistent primary key index. You can choose to persist and use the primary key index on disk rather than in memory, significantly reducing memory usage. For more information, see [Primary Key model](../table_design/Data_model.md#how-to-use-it-3).
 
 - A global dictionary built to optimize queries on low-cardinality columns can be updated during real-time data ingestion, doubling query performance of string data.
 
