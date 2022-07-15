@@ -8,7 +8,7 @@
 
 - The Primary Key model supports the persistent primary key index. You can choose to persist and use the primary key index on disk rather than in memory, significantly reducing memory usage. For more information, see [Primary Key model](../table_design/Data_model.md#how-to-use-it-3).
 
-- A global dictionary built to optimize queries on low-cardinality columns can be updated during real-time data ingestion, doubling query performance of string data.
+- A global dictionary supports updates during real-time data ingestion，thus optimizing query performance and doubling query performance of string data.
 
 - [Preview] Stream Load provides a transaction interface that supports splitting the execution of "sending data" and "submitting transaction", enabling two-phase commit of transactions that stream data by using external systems such as Apache Flink® or Apache Kafka® and improve loading performance in highly concurrent scenarios. For example, when data stream into StarRocks by using Flink, the transaction interface allows for simultaneous data reception and data sending, and your transaction can be submitted at a proper time to complete a batch load. This way, the client side does not need to cache each batch of data. This reduces the memory usage on the client side and provides guarantees for the exactly-once commits of transactions. In addition, the transaction interface also supports the loading of multiple small files as a single batch. For more information, see [Load data by using Stream Load transaction interface](../loading/Stream_Load_transaction_interface.md).
 
